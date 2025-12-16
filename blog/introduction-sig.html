@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction aux Systèmes d'Information Géographique | Blog A.C. KAMBOU</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Guide complet pour débuter avec QGIS et les données géospatiales en Afrique de l'Ouest. Découvrez les fondamentaux des SIG et leurs applications.">
+    <meta name="keywords" content="SIG, QGIS, géomatique, cartographie, données géospatiales, Afrique de l'Ouest">
+    <meta name="author" content="Anicet Cyrille KAMBOU">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-modern {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.1);
+            border-radius: 20px;
+        }
+
+        .card-modern:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+
+        article img {
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: #fbbf24;
+        }
+
+        article p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+
+        article ul, article ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            color: #d1d5db;
+        }
+
+        article li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        article strong {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+
+        article code {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            color: #fbbf24;
+            font-family: 'Courier New', monospace;
+        }
+
+        .highlight-box {
+            background: linear-gradient(145deg, rgba(245, 158, 11, 0.1), rgba(249, 115, 22, 0.1));
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe-africa text-gray-900"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">A.C.KAMBOU</span>
+                </a>
+                <!-- <a href="../index.html" class="px-4 py-2 text-gray-300 hover:text-amber-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i>Retour à l'accueil
+                </a> -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- En-tête de l'article -->
+            <header class="mb-12">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs font-semibold border border-amber-500/30">
+                        <i class="fas fa-map-marked-alt mr-1"></i>SIG
+                    </span>
+                    <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs">
+                        <i class="far fa-calendar-alt mr-1"></i>16 Décembre 2025
+                    </span>
+                    <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs">
+                        <i class="far fa-clock mr-1"></i>12 min de lecture
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Introduction aux Systèmes d'Information Géographique
+                </h1>
+                
+                <p class="text-xl text-gray-300 mb-6">
+                    Guide complet pour débuter avec QGIS et les données géospatiales en Afrique de l'Ouest
+                </p>
+                
+                <div class="flex items-center gap-4 p-6 card-modern">
+                    <img src="../static/img profile/photo2.jpg" alt="Anicet Cyrille KAMBOU" class="w-16 h-16 rounded-full border-2 border-amber-500">
+                    <div>
+                        <p class="font-semibold text-lg">Anicet Cyrille KAMBOU</p>
+                        <p class="text-sm text-gray-400">Ingénieur Agronome | Expert SIG & Data Science</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenu de l'article -->
+            <article class="prose prose-lg prose-invert max-w-none">
+                <div class="highlight-box">
+                    <p class="mb-0"><i class="fas fa-info-circle text-amber-400 mr-2"></i><strong>Note :</strong> Cet article s'adresse aux débutants en géomatique et aux professionnels souhaitant découvrir les SIG appliqués au contexte africain.</p>
+                </div>
+
+                <h2>Qu'est-ce qu'un Système d'Information Géographique ?</h2>
+                
+                <p>
+                    Un <strong>Système d'Information Géographique (SIG)</strong> est un outil informatique permettant de collecter, stocker, analyser et visualiser des données géographiques. Il combine des informations spatiales (où se trouve quelque chose) avec des informations attributaires (quelles sont les caractéristiques de cette chose).
+                </p>
+
+                <p>
+                    Les SIG sont devenus indispensables dans de nombreux domaines : agriculture de précision, urbanisme, gestion des ressources naturelles, santé publique, logistique, et bien d'autres.
+                </p>
+
+                <h2>Pourquoi les SIG sont-ils essentiels en Afrique de l'Ouest ?</h2>
+
+                <p>
+                    L'Afrique de l'Ouest fait face à des défis uniques où les SIG jouent un rôle crucial :
+                </p>
+
+                <ul>
+                    <li><strong>Agriculture :</strong> Optimisation des cultures, suivi des rendements, cartographie des sols et gestion de l'irrigation</li>
+                    <li><strong>Développement rural :</strong> Planification des infrastructures, accès aux services de base, cadastre rural</li>
+                    <li><strong>Environnement :</strong> Suivi de la déforestation, gestion des aires protégées, prévention des feux de brousse</li>
+                    <li><strong>Santé :</strong> Cartographie des maladies, planification des campagnes de vaccination, accessibilité aux centres de santé</li>
+                    <li><strong>Urbanisme :</strong> Planification urbaine, gestion des déchets, transport et mobilité</li>
+                </ul>
+
+                <h2>QGIS : Le logiciel libre de référence</h2>
+
+                <p>
+                    <strong>QGIS</strong> (Quantum GIS) est un logiciel SIG libre et gratuit, parfaitement adapté au contexte africain pour plusieurs raisons :
+                </p>
+
+                <ul>
+                    <li>✅ <strong>Gratuit et open source</strong> : Aucun coût de licence</li>
+                    <li>✅ <strong>Multiplateforme</strong> : Fonctionne sur Windows, Mac et Linux</li>
+                    <li>✅ <strong>Communauté active</strong> : Documentation riche et forums d'entraide</li>
+                    <li>✅ <strong>Puissant</strong> : Rivalise avec les solutions commerciales</li>
+                    <li>✅ <strong>Extensible</strong> : Centaines de plugins disponibles</li>
+                </ul>
+
+                <h3>Installation de QGIS</h3>
+
+                <p>
+                    Pour installer QGIS, rendez-vous sur <a href="https://qgis.org" target="_blank" class="text-amber-400 hover:text-amber-300">qgis.org</a> et téléchargez la version LTR (Long Term Release) qui est la plus stable. L'installation est simple et guidée.
+                </p>
+
+                <h2>Les composantes essentielles d'un SIG</h2>
+
+                <h3>1. Les données géospatiales</h3>
+
+                <p>Il existe deux types principaux de données spatiales :</p>
+
+                <ul>
+                    <li><strong>Données vectorielles :</strong> Points, lignes et polygones (ex : villes, routes, parcelles)</li>
+                    <li><strong>Données raster :</strong> Images pixelisées (ex : images satellites, modèles numériques de terrain)</li>
+                </ul>
+
+                <h3>2. Les systèmes de coordonnées</h3>
+
+                <p>
+                    Chaque donnée géographique doit être référencée dans un système de coordonnées. En Afrique de l'Ouest, on utilise principalement :
+                </p>
+
+                <ul>
+                    <li><strong>WGS84 (EPSG:4326)</strong> : Système géographique mondial</li>
+                    <li><strong>UTM Zone 29N/30N (EPSG:32629/32630)</strong> : Système projeté pour l'Afrique de l'Ouest</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p class="mb-0"><i class="fas fa-exclamation-triangle text-amber-400 mr-2"></i><strong>Important :</strong> Toujours vérifier que vos couches utilisent le même système de projection pour éviter les décalages.</p>
+                </div>
+
+                <h3>3. Les analyses spatiales</h3>
+
+                <p>QGIS offre une multitude d'outils d'analyse :</p>
+
+                <ul>
+                    <li><strong>Tampons (buffers) :</strong> Créer des zones d'influence autour d'objets</li>
+                    <li><strong>Découpage (clip) :</strong> Extraire une portion de données</li>
+                    <li><strong>Intersection :</strong> Trouver les zones communes entre couches</li>
+                    <li><strong>Jointures spatiales :</strong> Croiser des données selon leur position</li>
+                    <li><strong>Calcul de distances :</strong> Mesurer des distances ou surfaces</li>
+                </ul>
+
+                <h2>Où trouver des données géospatiales pour l'Afrique ?</h2>
+
+                <p>Plusieurs sources offrent des données gratuites et de qualité :</p>
+
+                <ul>
+                    <li><strong>OpenStreetMap</strong> : Données routières, bâtiments, points d'intérêt</li>
+                    <li><strong>GADM</strong> : Limites administratives mondiales</li>
+                    <li><strong>Copernicus</strong> : Images satellites Sentinel (accès libre)</li>
+                    <li><strong>USGS Earth Explorer</strong> : Images Landsat, SRTM (topographie)</li>
+                    <li><strong>FAO GeoNetwork</strong> : Données agricoles et environnementales</li>
+                    <li><strong>HDX (Humanitarian Data Exchange)</strong> : Données humanitaires et de développement</li>
+                </ul>
+
+                <h2>Premier projet pratique : Cartographier votre région</h2>
+
+                <p>Voici les étapes pour créer votre première carte avec QGIS :</p>
+
+                <ol>
+                    <li><strong>Télécharger les limites administratives</strong> de votre pays sur GADM</li>
+                    <li><strong>Ajouter un fond de carte</strong> OpenStreetMap (Plugin QuickMapServices)</li>
+                    <li><strong>Importer vos données</strong> (shapefiles, CSV avec coordonnées, etc.)</li>
+                    <li><strong>Styliser vos couches</strong> avec des couleurs et symboles adaptés</li>
+                    <li><strong>Ajouter une légende</strong>, une échelle et un titre</li>
+                    <li><strong>Exporter en PDF</strong> ou image haute résolution</li>
+                </ol>
+
+                <h2>Ressources pour aller plus loin</h2>
+
+                <ul>
+                    <li><strong>Documentation officielle QGIS :</strong> <a href="https://docs.qgis.org" target="_blank" class="text-amber-400">docs.qgis.org</a></li>
+                    <li><strong>QGIS Tutorials :</strong> <a href="https://www.qgistutorials.com" target="_blank" class="text-amber-400">qgistutorials.com</a></li>
+                    <li><strong>Forum QGIS Francophone :</strong> <a href="https://osgeo-fr.github.io" target="_blank" class="text-amber-400">OSGeo-fr</a></li>
+                    <li><strong>Chaîne YouTube :</strong> QGIS tutorials and tips</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+
+                <p>
+                    Les Systèmes d'Information Géographique sont des outils puissants pour analyser et visualiser notre territoire. QGIS, en tant que solution libre, démocratise l'accès à ces technologies en Afrique de l'Ouest. Que vous soyez agronome, urbaniste, géographe ou simplement curieux, les SIG vous ouvriront de nouvelles perspectives sur votre environnement.
+                </p>
+
+                <p>
+                    N'hésitez pas à me contacter si vous avez des questions ou si vous souhaitez une formation personnalisée en SIG !
+                </p>
+
+                <div class="highlight-box mt-8">
+                    <p class="mb-2"><strong>💡 Prochainement sur le blog :</strong></p>
+                    <ul class="mb-0">
+                        <li>Machine Learning pour l'Agriculture de Précision</li>
+                        <li>Créer des Tableaux de Bord KPI Efficaces</li>
+                        <li>Télédétection avec Google Earth Engine</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section Partage et Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <p class="text-gray-400 text-sm mb-2">Partager cet article</p>
+                        <div class="flex gap-3">
+                            <a href="https://twitter.com/intent/tweet?url=https://mr-kam.github.io/blog/introduction-sig.html&text=Introduction aux SIG" 
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-500 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur Twitter">
+                                <i class="fab fa-twitter text-gray-300"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mr-kam.github.io/blog/introduction-sig.html" 
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur LinkedIn">
+                                <i class="fab fa-linkedin-in text-gray-300"></i>
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mr-kam.github.io/blog/introduction-sig.html" 
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-700 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur Facebook">
+                                <i class="fab fa-facebook-f text-gray-300"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="../index.html#blog" class="px-6 py-3 gradient-primary text-gray-900 font-semibold rounded-xl hover:scale-105 transition-transform">
+                        <i class="fas fa-arrow-left mr-2"></i>Retour au blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 border-t border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 text-sm">
+                © 2025 Anicet Cyrille KAMBOU. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
