@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Anicet Cyrille KAMBOU - Articles SIG, Data Science & Agriculture</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Articles et tutoriels sur les SIG, le Machine Learning, l'agriculture de précision, les tableaux de bord et la science des données par Anicet Cyrille KAMBOU.">
+    <meta name="keywords" content="blog SIG, géomatique, machine learning agriculture, tableaux de bord, QGIS, Python, data science">
+    <meta name="author" content="Anicet Cyrille KAMBOU">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-modern {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card-modern:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe-africa text-gray-900"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">A.C. KAMBOU</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="index.html#accueil" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Accueil</a>
+                    <a href="index.html#apropos" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">À propos</a>
+                    <a href="index.html#competences" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Compétences</a>
+                    <a href="index.html#realisations" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Réalisations</a>
+                    <a href="blog.html" class="px-4 py-2 text-amber-400 bg-amber-500/10 rounded-lg transition-all text-sm font-medium">Blog</a>
+                    <a href="index.html#contact" class="btn-primary px-5 py-2 text-gray-900 text-sm ml-4">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" class="md:hidden w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="card-modern p-4 flex flex-col gap-2">
+                    <a href="index.html#accueil" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Accueil</a>
+                    <a href="index.html#apropos" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">À propos</a>
+                    <a href="index.html#competences" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Compétences</a>
+                    <a href="index.html#realisations" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Réalisations</a>
+                    <a href="blog.html" class="px-4 py-3 text-amber-400 bg-amber-500/10 rounded-xl transition-all font-medium">Blog</a>
+                    <a href="index.html#contact" class="btn-primary py-3 text-gray-900 text-center mt-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-[40vh] hero-gradient flex items-center pt-24 pb-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full mb-6">
+                <span class="text-amber-400 text-sm font-medium">
+                    <i class="fas fa-newspaper mr-2"></i>Blog
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Articles & Tutoriels
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Découvrez mes articles sur les SIG, le Machine Learning, l'agriculture de précision et la data visualisation
+            </p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <main class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <!-- Filtres -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-6 py-2 rounded-full bg-amber-500 text-gray-900 font-medium text-sm" data-category="all">
+                    Tous les articles
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium text-sm" data-category="sig">
+                    <i class="fas fa-map-marked-alt mr-2"></i>SIG
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium text-sm" data-category="ia">
+                    <i class="fas fa-brain mr-2"></i>IA & ML
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-gray-700 font-medium text-sm" data-category="data">
+                    <i class="fas fa-chart-line mr-2"></i>Data
+                </button>
+            </div>
+
+            <!-- Grid d'articles -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Article 1 : SIG -->
+                <article class="card-modern overflow-hidden group" data-category="sig">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-5xl text-amber-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-medium border border-amber-500/30">SIG</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-400">
+                            <span><i class="far fa-calendar-alt text-amber-400 mr-2"></i>16 Déc 2025</span>
+                            <span><i class="far fa-clock text-amber-400 mr-2"></i>12 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-amber-400 transition-colors">Introduction aux Systèmes d'Information Géographique</h3>
+                        <p class="text-gray-400 text-sm mb-4">Découvrez QGIS et les fondamentaux de la cartographie pour l'agriculture en Afrique de l'Ouest.</p>
+                        <a href="blog/introduction-sig.html" class="text-amber-400 hover:text-amber-300 font-medium text-sm flex items-center">
+                            Lire l'article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 : IA -->
+                <article class="card-modern overflow-hidden group" data-category="ia">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-pink-500/20 to-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-brain text-5xl text-pink-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full text-xs font-medium border border-pink-500/30">IA</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-400">
+                            <span><i class="far fa-calendar-alt text-pink-400 mr-2"></i>16 Déc 2025</span>
+                            <span><i class="far fa-clock text-pink-400 mr-2"></i>15 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-pink-400 transition-colors">Machine Learning pour l'Agriculture de Précision</h3>
+                        <p class="text-gray-400 text-sm mb-4">Comment l'IA révolutionne la gestion des exploitations agricoles en Côte d'Ivoire.</p>
+                        <a href="blog/ml-agriculture-precision.html" class="text-pink-400 hover:text-pink-300 font-medium text-sm flex items-center">
+                            Lire l'article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 : Data -->
+                <article class="card-modern overflow-hidden group" data-category="data">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-5xl text-blue-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Data</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-400">
+                            <span><i class="far fa-calendar-alt text-blue-400 mr-2"></i>16 Déc 2025</span>
+                            <span><i class="far fa-clock text-blue-400 mr-2"></i>14 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors">Créer des Tableaux de Bord KPI Efficaces</h3>
+                        <p class="text-gray-400 text-sm mb-4">Méthodologie pour concevoir des dashboards de suivi-évaluation pour projets de développement.</p>
+                        <a href="blog/tableaux-bord-kpi.html" class="text-blue-400 hover:text-blue-300 font-medium text-sm flex items-center">
+                            Lire l'article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Message pour plus d'articles -->
+            <div class="text-center mt-16">
+                <div class="inline-block p-8 card-modern">
+                    <i class="fas fa-pencil-alt text-4xl text-amber-400 mb-4"></i>
+                    <p class="text-gray-300 mb-4">Plus d'articles à venir prochainement !</p>
+                    <p class="text-gray-500 text-sm">Abonnez-vous pour être notifié des nouveaux contenus</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 relative overflow-hidden">
+        <!-- Formes décoratives -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center">
+                            <i class="fas fa-globe-africa text-gray-900 text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold gradient-text">A.C. KAMBOU</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        Ingénieur Agronome, Expert SIG & Data Science, Enseignant-Chercheur à l'INP-HB. 
+                        Disponible pour des missions de consulting, formations et collaborations de recherche.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://github.com/Mr-KAM" title="GitHub" class="w-10 h-10 rounded-xl bg-gray-800 hover:gradient-primary hover:text-gray-900 flex items-center justify-center transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kambou-anicet-cyrille-ing-agro-dev-data/" title="LinkedIn" class="w-10 h-10 rounded-xl bg-gray-800 hover:gradient-primary hover:text-gray-900 flex items-center justify-center transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:anicet.kambou@inphb.ci" title="Email" class="w-10 h-10 rounded-xl bg-gray-800 hover:gradient-primary hover:text-gray-900 flex items-center justify-center transition-all">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Liens rapides</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#accueil" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Accueil</a></li>
+                        <li><a href="index.html#apropos" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>À propos</a></li>
+                        <li><a href="index.html#competences" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Compétences</a></li>
+                        <li><a href="formations.html" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Mes Formations</a></li>
+                        <li><a href="index.html#realisations" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Réalisations</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Blog</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Restez informé de mes derniers projets et publications.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Votre email"
+                            class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm">
+                        <button type="submit" class="btn-primary w-full py-3 text-gray-900 text-sm font-medium">
+                            <i class="fas fa-paper-plane mr-2"></i>S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm text-center md:text-left">
+                    &copy; 2025 <span class="text-amber-400">Anicet Cyrille KAMBOU</span>. Tous droits réservés.
+                </p>
+                <p class="text-gray-600 text-xs">
+                    Made with <i class="fas fa-heart text-pink-500"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Filtres d'articles
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const articles = document.querySelectorAll('article[data-category]');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                // Update active button
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-amber-500', 'text-gray-900');
+                    b.classList.add('bg-gray-800', 'text-gray-300');
+                });
+                btn.classList.add('active', 'bg-amber-500', 'text-gray-900');
+                btn.classList.remove('bg-gray-800', 'text-gray-300');
+                
+                // Filter articles
+                articles.forEach(article => {
+                    if (category === 'all' || article.dataset.category === category) {
+                        article.style.display = 'block';
+                        setTimeout(() => {
+                            article.style.opacity = '1';
+                            article.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        article.style.opacity = '0';
+                        article.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            article.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

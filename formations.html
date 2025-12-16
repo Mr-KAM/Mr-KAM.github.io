@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Formations | Anicet Cyrille KAMBOU - Cours SIG, Data Science & Agriculture</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Formations professionnelles dispensées par Anicet Cyrille KAMBOU : SIG/QGIS, Python, Machine Learning, tableaux de bord, télédétection et agriculture de précision.">
+    <meta name="keywords" content="formation SIG, cours QGIS, formation Python, machine learning agriculture, formation géomatique, INP-HB">
+    <meta name="author" content="Anicet Cyrille KAMBOU">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-modern {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 158, 11, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card-modern:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+        }
+
+        .search-box {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .search-box:focus-within {
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe-africa text-gray-900"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">A.C. KAMBOU</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="index.html#accueil" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Accueil</a>
+                    <a href="index.html#apropos" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">À propos</a>
+                    <a href="index.html#competences" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Compétences</a>
+                    <a href="index.html#realisations" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Réalisations</a>
+                    <a href="formations.html" class="px-4 py-2 text-amber-400 bg-amber-500/10 rounded-lg transition-all text-sm font-medium">Mes Formations</a>
+                    <a href="blog.html" class="px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-lg transition-all text-sm">Blog</a>
+                    <a href="index.html#contact" class="btn-primary px-5 py-2 text-gray-900 text-sm ml-4">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" class="md:hidden w-10 h-10 rounded-xl bg-gray-800 flex items-center justify-center hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <div class="card-modern p-4 flex flex-col gap-2">
+                    <a href="index.html#accueil" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Accueil</a>
+                    <a href="index.html#apropos" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">À propos</a>
+                    <a href="index.html#competences" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Compétences</a>
+                    <a href="index.html#realisations" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Réalisations</a>
+                    <a href="formations.html" class="px-4 py-3 text-amber-400 bg-amber-500/10 rounded-xl transition-all font-medium">Mes Formations</a>
+                    <a href="blog.html" class="px-4 py-3 text-gray-300 hover:text-amber-400 hover:bg-amber-500/10 rounded-xl transition-all">Blog</a>
+                    <a href="index.html#contact" class="btn-primary py-3 text-gray-900 text-center mt-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-[40vh] hero-gradient flex items-center pt-24 pb-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full mb-6">
+                <span class="text-amber-400 text-sm font-medium">
+                    <i class="fas fa-graduation-cap mr-2"></i>Formations Professionnelles
+                </span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Mes Formations
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Cours et formations que je dispense en SIG, Data Science, Machine Learning et agriculture de précision
+            </p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="py-8 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <div class="search-box rounded-2xl p-4">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-search text-amber-400 text-xl"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Rechercher une formation (ex: QGIS, Python, Machine Learning...)"
+                            class="flex-1 bg-transparent text-white placeholder-gray-400 focus:outline-none text-lg"
+                        >
+                        <button id="clearSearch" class="text-gray-400 hover:text-amber-400 transition-colors hidden">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="searchResults" class="mt-4 text-center text-gray-400 text-sm"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Section -->
+    <main class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <!-- Grid des formations -->
+            <div id="formationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                
+                <!-- Formation 1: SIG & QGIS -->
+                <article class="formation-card card-modern overflow-hidden group" data-title="Formation SIG avec QGIS" data-keywords="sig qgis cartographie géomatique télédétection gps">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-5xl text-green-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-medium border border-green-500/30">SIG</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-800/80 text-gray-300 px-2 py-1 rounded text-xs">40h</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-green-400 transition-colors">Formation SIG avec QGIS</h3>
+                        <p class="text-gray-400 text-sm mb-4">Maîtrise complète de QGIS : cartographie, analyse spatiale, télédétection et bases de données géographiques.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">QGIS</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">PostGIS</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">GPS</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400 font-semibold">Niveau : Débutant à Avancé</span>
+                            <button class="text-green-400 hover:text-green-300 font-medium text-sm">
+                                Détails <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Formation 2: Python Data Science -->
+                <article class="formation-card card-modern overflow-hidden group" data-title="Python pour la Data Science" data-keywords="python data science pandas numpy matplotlib machine learning">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center">
+                            <i class="fab fa-python text-5xl text-blue-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-xs font-medium border border-blue-500/30">Python</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-800/80 text-gray-300 px-2 py-1 rounded text-xs">35h</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors">Python pour la Data Science</h3>
+                        <p class="text-gray-400 text-sm mb-4">Programmation Python, analyse de données, visualisation et introduction au Machine Learning agricole.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Pandas</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">NumPy</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Matplotlib</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400 font-semibold">Niveau : Intermédiaire</span>
+                            <button class="text-blue-400 hover:text-blue-300 font-medium text-sm">
+                                Détails <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Formation 3: Machine Learning Agriculture -->
+                <article class="formation-card card-modern overflow-hidden group" data-title="ML pour l'Agriculture de Précision" data-keywords="machine learning agriculture précision ia intelligence artificielle prédiction">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-brain text-5xl text-pink-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full text-xs font-medium border border-pink-500/30">IA</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-800/80 text-gray-300 px-2 py-1 rounded text-xs">30h</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-pink-400 transition-colors">ML pour l'Agriculture de Précision</h3>
+                        <p class="text-gray-400 text-sm mb-4">Application du Machine Learning aux défis agricoles : prédiction rendement, détection maladies, optimisation irrigation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Scikit-learn</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">TensorFlow</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">CV</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400 font-semibold">Niveau : Avancé</span>
+                            <button class="text-pink-400 hover:text-pink-300 font-medium text-sm">
+                                Détails <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Formation 4: Tableaux de Bord -->
+                <article class="formation-card card-modern overflow-hidden group" data-title="Création de Tableaux de Bord" data-keywords="tableau bord dashboard power bi visualization kpi suivi évaluation">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-5xl text-orange-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-medium border border-orange-500/30">Data Viz</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-800/80 text-gray-300 px-2 py-1 rounded text-xs">25h</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-orange-400 transition-colors">Création de Tableaux de Bord</h3>
+                        <p class="text-gray-400 text-sm mb-4">Concevoir des dashboards efficaces avec Power BI, Streamlit et D3.js pour le suivi-évaluation de projets.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Power BI</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Streamlit</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">D3.js</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400 font-semibold">Niveau : Intermédiaire</span>
+                            <button class="text-orange-400 hover:text-orange-300 font-medium text-sm">
+                                Détails <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Formation 5: Google Earth Engine -->
+                <article class="formation-card card-modern overflow-hidden group" data-title="Télédétection avec Google Earth Engine" data-keywords="télédétection satellite earth engine javascript monitoring environnement">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-cyan-500/20 to-teal-500/20 flex items-center justify-center">
+                            <i class="fas fa-satellite text-5xl text-cyan-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full text-xs font-medium border border-cyan-500/30">Satellite</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-800/80 text-gray-300 px-2 py-1 rounded text-xs">20h</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-cyan-400 transition-colors">Télédétection avec Google Earth Engine</h3>
+                        <p class="text-gray-400 text-sm mb-4">Analyse d'images satellites pour le monitoring environnemental et agricole avec la plateforme cloud Google.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">JavaScript</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Sentinel</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">Landsat</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400 font-semibold">Niveau : Avancé</span>
+                            <button class="text-cyan-400 hover:text-cyan-300 font-medium text-sm">
+                                Détails <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Formation 6: Statistiques Agricoles -->
+                <article class="formation-card card-modern overflow-hidden group" data-title="Statistiques Appliquées à l'Agriculture" data-keywords="statistiques agriculture r anova régression expérimentation plan">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-purple-500/20 to-violet-500/20 flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-5xl text-purple-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-xs font-medium border border-purple-500/30">Stats</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-gray-800/80 text-gray-300 px-2 py-1 rounded text-xs">28h</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-purple-400 transition-colors">Statistiques Appliquées à l'Agriculture</h3>
+                        <p class="text-gray-400 text-sm mb-4">Méthodes statistiques pour l'expérimentation agricole : plans d'expérience, ANOVA, régression avec R.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">R</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">RStudio</span>
+                            <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">ANOVA</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-400 font-semibold">Niveau : Intermédiaire</span>
+                            <button class="text-purple-400 hover:text-purple-300 font-medium text-sm">
+                                Détails <i class="fas fa-chevron-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Aucun résultat -->
+            <div id="noResults" class="hidden text-center py-16">
+                <i class="fas fa-search text-4xl text-gray-500 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-400 mb-2">Aucune formation trouvée</h3>
+                <p class="text-gray-500">Essayez avec d'autres mots-clés</p>
+            </div>
+
+            <!-- Contact pour formation personnalisée -->
+            <div class="text-center mt-16">
+                <div class="inline-block p-8 card-modern max-w-2xl">
+                    <i class="fas fa-user-tie text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4">Formation sur mesure ?</h3>
+                    <p class="text-gray-300 mb-6">Je peux adapter mes formations à vos besoins spécifiques ou créer un programme personnalisé pour votre organisation.</p>
+                    <a href="index.html#contact" class="btn-primary px-6 py-3 text-gray-900 font-semibold rounded-xl hover:scale-105 transition-transform inline-block">
+                        <i class="fas fa-envelope mr-2"></i>Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8 relative overflow-hidden">
+        <!-- Formes décoratives -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <a href="index.html" class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center">
+                            <i class="fas fa-globe-africa text-gray-900 text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold gradient-text">A.C. KAMBOU</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
+                        Ingénieur Agronome, Expert SIG & Data Science, Enseignant-Chercheur à l'INP-HB. 
+                        Disponible pour des missions de consulting, formations et collaborations de recherche.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://github.com/Mr-KAM" title="GitHub" class="w-10 h-10 rounded-xl bg-gray-800 hover:gradient-primary hover:text-gray-900 flex items-center justify-center transition-all">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kambou-anicet-cyrille-ing-agro-dev-data/" title="LinkedIn" class="w-10 h-10 rounded-xl bg-gray-800 hover:gradient-primary hover:text-gray-900 flex items-center justify-center transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:anicet.kambou@inphb.ci" title="Email" class="w-10 h-10 rounded-xl bg-gray-800 hover:gradient-primary hover:text-gray-900 flex items-center justify-center transition-all">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Liens rapides -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Liens rapides</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#accueil" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Accueil</a></li>
+                        <li><a href="index.html#apropos" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>À propos</a></li>
+                        <li><a href="index.html#competences" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Compétences</a></li>
+                        <li><a href="formations.html" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Mes Formations</a></li>
+                        <li><a href="index.html#realisations" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Réalisations</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Blog</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-amber-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-amber-500"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4 text-sm">Restez informé de mes derniers projets et publications.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Votre email"
+                            class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm">
+                        <button type="submit" class="btn-primary w-full py-3 text-gray-900 text-sm font-medium">
+                            <i class="fas fa-paper-plane mr-2"></i>S'abonner
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm text-center md:text-left">
+                    &copy; 2025 <span class="text-amber-400">Anicet Cyrille KAMBOU</span>. Tous droits réservés.
+                </p>
+                <p class="text-gray-600 text-xs">
+                    Made with <i class="fas fa-heart text-pink-500"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu mobile toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = mobileMenu.classList.contains('hidden') ? 'false' : 'true';
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const clearSearch = document.getElementById('clearSearch');
+        const searchResults = document.getElementById('searchResults');
+        const formationsGrid = document.getElementById('formationsGrid');
+        const noResults = document.getElementById('noResults');
+        const allFormations = document.querySelectorAll('.formation-card');
+
+        let searchTimeout;
+
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            const query = e.target.value.trim().toLowerCase();
+            
+            // Show/hide clear button
+            clearSearch.classList.toggle('hidden', query === '');
+            
+            // Debounce search
+            searchTimeout = setTimeout(() => {
+                performSearch(query);
+            }, 300);
+        });
+
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            clearSearch.classList.add('hidden');
+            performSearch('');
+        });
+
+        function performSearch(query) {
+            if (query === '') {
+                // Show all formations
+                allFormations.forEach(card => {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                });
+                searchResults.textContent = '';
+                noResults.classList.add('hidden');
+                formationsGrid.classList.remove('hidden');
+                return;
+            }
+
+            let visibleCount = 0;
+            
+            allFormations.forEach(card => {
+                const title = card.dataset.title.toLowerCase();
+                const keywords = card.dataset.keywords.toLowerCase();
+                
+                if (title.includes(query) || keywords.includes(query)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                    visibleCount++;
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 200);
+                }
+            });
+
+            // Update search results
+            if (visibleCount > 0) {
+                searchResults.textContent = `${visibleCount} formation${visibleCount > 1 ? 's' : ''} trouvée${visibleCount > 1 ? 's' : ''}`;
+                noResults.classList.add('hidden');
+                formationsGrid.classList.remove('hidden');
+            } else {
+                searchResults.textContent = '';
+                noResults.classList.remove('hidden');
+                formationsGrid.classList.add('hidden');
+            }
+        }
+
+        // Add smooth transition to cards
+        allFormations.forEach(card => {
+            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        });
+    </script>
+</body>
+
+</html>
