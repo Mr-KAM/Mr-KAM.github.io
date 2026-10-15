@@ -26,9 +26,9 @@
     <meta property="twitter:image" content="https://mr-kam.github.io/static/img%20profile/photo2.jpg">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="static/js/theme.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         html {
             scroll-behavior: smooth;
@@ -45,11 +45,11 @@
         }
 
         .gradient-primary {
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ea580c 100%);
+            background: linear-gradient(135deg, #d4ff3f 0%, #d4ff3f 50%, #d4ff3f 100%);
         }
 
         .gradient-accent {
-            background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+            background: linear-gradient(135deg, #d4ff3f 0%, #d4ff3f 100%);
         }
 
         .gradient-card {
@@ -75,7 +75,7 @@
         .shape-1 {
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 255, 63, 0.15) 0%, transparent 70%);
             top: 10%;
             right: -100px;
             animation-delay: 0s;
@@ -103,6 +103,12 @@
             z-index: 30;
         }
 
+        /* Bottom navigation (petits écrans) */
+        @media (max-width: 767px) {
+            body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+            #back-to-top { bottom: calc(80px + env(safe-area-inset-bottom)); }
+        }
+
         /* Points décoratifs */
         .dot-pattern {
             position: absolute;
@@ -115,7 +121,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: rgba(245, 158, 11, 0.3);
+            background-color: rgba(212, 255, 63, 0.3);
         }
 
         .dot-pattern-1 { top: 15%; left: 5%; }
@@ -125,7 +131,7 @@
         .decorative-line {
             position: absolute;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+            background: linear-gradient(90deg, transparent, #d4ff3f, transparent);
             border-radius: 2px;
         }
 
@@ -139,8 +145,8 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.5); }
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 255, 63, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 255, 63, 0.5); }
         }
 
         /* Timeline */
@@ -150,7 +156,7 @@
             bottom: 0;
             left: 15px;
             width: 3px;
-            background: linear-gradient(180deg, #f59e0b 0%, #ec4899 100%);
+            background: linear-gradient(180deg, #d4ff3f 0%, #d4ff3f 100%);
             transform: translateX(-50%);
             border-radius: 2px;
         }
@@ -161,9 +167,9 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: linear-gradient(135deg, #d4ff3f, #d4ff3f);
             transform: translateX(-50%);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+            box-shadow: 0 0 15px rgba(212, 255, 63, 0.5);
         }
 
         .transition-all {
@@ -175,14 +181,14 @@
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(212, 255, 63, 0.1);
             border-radius: 20px;
         }
 
         .card-modern:hover {
-            border-color: rgba(245, 158, 11, 0.4);
+            border-color: rgba(212, 255, 63, 0.4);
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.15);
+            box-shadow: 0 25px 50px -12px rgba(212, 255, 63, 0.15);
         }
 
         .project-card {
@@ -198,7 +204,7 @@
         .project-overlay {
             opacity: 0;
             transition: opacity 0.4s ease;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(236, 72, 153, 0.9));
+            background: linear-gradient(135deg, rgba(212, 255, 63, 0.9), rgba(236, 72, 153, 0.9));
         }
 
         .project-card:hover .project-overlay {
@@ -207,8 +213,8 @@
 
         /* Boutons modernes */
         .btn-primary {
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
-            box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.4);
+            background: linear-gradient(135deg, #d4ff3f 0%, #d4ff3f 100%);
+            box-shadow: 0 10px 30px -5px rgba(212, 255, 63, 0.4);
             border-radius: 12px;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -216,7 +222,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px -5px rgba(245, 158, 11, 0.5);
+            box-shadow: 0 15px 40px -5px rgba(212, 255, 63, 0.5);
         }
 
         .btn-secondary {
@@ -229,9 +235,9 @@
         }
 
         .btn-secondary:hover {
-            border-color: #f59e0b;
-            background: rgba(245, 158, 11, 0.1);
-            color: #f59e0b;
+            border-color: #d4ff3f;
+            background: rgba(212, 255, 63, 0.1);
+            color: #d4ff3f;
         }
 
         /* Photo de profil avec glow */
@@ -241,7 +247,7 @@
 
         /* Badge accent */
         .badge-accent {
-            background: linear-gradient(135deg, #ec4899, #f43f5e);
+            background: linear-gradient(135deg, #d4ff3f, #d4ff3f);
             border-radius: 20px;
             padding: 4px 12px;
             font-size: 0.75rem;
@@ -262,7 +268,7 @@
         }
 
         .social-icon:hover {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: linear-gradient(135deg, #d4ff3f, #d4ff3f);
             border-color: transparent;
             transform: translateY(-3px);
         }
@@ -297,7 +303,7 @@
         /* Stats cards */
         .stat-card {
             background: linear-gradient(145deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
-            border: 1px solid rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(212, 255, 63, 0.2);
             border-radius: 16px;
             padding: 20px;
             text-align: center;
@@ -308,7 +314,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #f59e0b, #f97316);
+            background: linear-gradient(135deg, #d4ff3f, #d4ff3f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -316,9 +322,9 @@
 
         /* Skill tags */
         .skill-tag {
-            background: rgba(245, 158, 11, 0.15);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            color: #f59e0b;
+            background: rgba(212, 255, 63, 0.15);
+            border: 1px solid rgba(212, 255, 63, 0.3);
+            color: #d4ff3f;
             border-radius: 8px;
             padding: 6px 14px;
             font-size: 0.8rem;
@@ -327,24 +333,24 @@
         }
 
         .skill-tag:hover {
-            background: rgba(245, 158, 11, 0.25);
+            background: rgba(212, 255, 63, 0.25);
             transform: scale(1.05);
         }
 
         /* Focus styles pour l'accessibilité */
         *:focus-visible {
-            outline: 2px solid #f59e0b;
+            outline: 2px solid #d4ff3f;
             outline-offset: 2px;
         }
         
         .btn-primary:focus-visible,
         .btn-secondary:focus-visible {
-            outline: 3px solid #f59e0b;
+            outline: 3px solid #d4ff3f;
             outline-offset: 3px;
         }
         
         .social-icon:focus-visible {
-            outline: 2px solid #f59e0b;
+            outline: 2px solid #d4ff3f;
             outline-offset: 2px;
         }
 
@@ -457,6 +463,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="static/css/theme.css">
 </head>
 
 <body class="bg-gray-900 text-white">
@@ -530,18 +537,14 @@
 
         <div class="container mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col md:flex-row items-center relative z-10">
             <div class="md:w-1/2 mb-12 md:mb-0 text-center md:text-left">
-                <span class="badge-accent inline-block mb-4 text-xs sm:text-sm">
-                    <i class="fas fa-graduation-cap mr-2"></i>Enseignant-Chercheur à l'INP-HB
-                </span>
-                <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                    Bonjour, je suis<br>
-                    <span class="bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500 bg-clip-text text-transparent">
-                        Anicet Cyrille KAMBOU
-                    </span>
+                <span class="kicker">Enseignant-Chercheur · INP-HB</span>
+                <h1 class="text-5xl sm:text-6xl lg:text-8xl mb-6">
+                    Anicet Cyrille<br>
+                    <span class="hl">Kambou</span>
                 </h1>
-                <h2 class="text-lg sm:text-xl md:text-2xl mb-6 text-gray-300 font-light">
-                    Ingénieur Agronome | Expert SIG & Data Science
-                </h2>
+                <p class="mb-6 text-gray-300 font-mono text-xs sm:text-sm uppercase tracking-widest">
+                    Ingénieur Agronome <span class="hl">/</span> Expert SIG <span class="hl">/</span> Data Science
+                </p>
                 <p class="text-gray-400 mb-8 max-w-lg leading-relaxed text-sm sm:text-base mx-auto md:mx-0">
                     Ingénieur agronome, enseignant-chercheur et expert SIG/Télédétection passionné par l’innovation, 
                     la cartographie et la digitalisation agricole. 
@@ -591,15 +594,13 @@
             </div>
             <div class="md:w-1/2 flex justify-center mt-8 md:mt-0">
                 <div class="relative">
-                    <!-- Cercle décoratif arrière (masqué sur mobile) -->
-                    <div class="absolute -inset-4 bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 rounded-full opacity-20 blur-2xl hidden md:block"></div>
-                    
-                    <div class="relative w-56 h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-amber-500 profile-glow mx-auto">
-                        <img src="static/img profile/photo2.jpg" alt="Photo de profil" class="w-full h-full object-cover">
+                    <!-- Cadre photo façon viseur -->
+                    <div class="relative w-60 h-72 sm:w-72 sm:h-[22rem] md:w-96 md:h-[30rem] overflow-hidden border border-gray-700 mx-auto photo-frame">
+                        <img src="static/img profile/photo2.jpg" alt="Photo de profil" class="w-full h-full object-cover grayscale-[30%]">
                     </div>
                     
                     <!-- Badge expérience -->
-                    <div class="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 card-modern p-3 sm:p-5 shadow-2xl">
+                    <div class="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 card-modern p-3 sm:p-5 shadow-2xl">
                         <p class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">+6 ans</p>
                         <p class="text-xs sm:text-sm text-gray-400">d'expérience</p>
                     </div>
@@ -624,8 +625,7 @@
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="flex flex-col md:flex-row gap-8 md:gap-12">
                 <div class="md:w-1/3 mb-6 md:mb-0 text-center md:text-left">
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-4 section-title">À propos</h2>
-                    <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 rounded-full mb-6 sm:mb-8 mt-4 sm:mt-6 mx-auto md:mx-0"></div>
+                    <h2 class="text-3xl sm:text-5xl mb-4 section-title">À <span class="hl">propos</span></h2>
                     
                     <!-- Quick info cards -->
                     <div class="space-y-4 mt-8">
@@ -697,9 +697,8 @@
         
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-10 sm:mb-16">
-                <span class="block text-amber-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">Expertise</span>
-                <h2 class="text-2xl sm:text-4xl font-bold section-title">Mes compétences</h2>
-                <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+                <span class="kicker">Expertise</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl section-title">Mes <span class="hl">compétences</span></h2>
             </div>
 
             <!-- Compétences techniques en grille -->
@@ -870,9 +869,8 @@
         
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-10 sm:mb-16">
-                <span class="block text-amber-400 text-sm font-semibold tracking-wider uppercase mb-2">Parcours académique</span>
-                <h2 class="text-2xl sm:text-4xl font-bold section-title">Formation & Diplômes</h2>
-                <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+                <span class="kicker">Parcours académique</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl section-title">Formation <span class="hl">& Diplômes</span></h2>
             </div>
 
             <div class="relative pl-10 max-w-3xl mx-auto">
@@ -1005,9 +1003,8 @@
         
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12">
-                <span class="block text-amber-400 text-sm font-semibold tracking-wider uppercase mb-2">Portfolio</span>
-                <h2 class="text-2xl sm:text-4xl font-bold section-title">Mes réalisations</h2>
-                <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+                <span class="kicker">Portfolio</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl section-title">Mes <span class="hl">réalisations</span></h2>
                 <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Découvrez mes travaux en cartographie, tableaux de bord, applications et packages Python</p>
             </div>
 
@@ -1042,9 +1039,8 @@
         
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12">
-                <span class="block text-amber-400 text-sm font-semibold tracking-wider uppercase mb-2">Curriculum Vitae</span>
-                <h2 class="text-2xl sm:text-4xl font-bold section-title">Mon CV</h2>
-                <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+                <span class="kicker">Curriculum Vitae</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl section-title">Mon <span class="hl">CV</span></h2>
             </div>
 
             <div class="max-w-4xl mx-auto card-modern overflow-hidden">
@@ -1142,9 +1138,8 @@
         
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12">
-                <span class="block text-amber-400 text-sm font-semibold tracking-wider uppercase mb-2">Articles & Actualités</span>
-                <h2 class="text-2xl sm:text-4xl font-bold section-title">Blog</h2>
-                <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+                <span class="kicker">Articles & Actualités</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl section-title">Le <span class="hl">Blog</span></h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1229,9 +1224,8 @@
         
         <div class="container mx-auto px-4 sm:px-6 relative z-10">
             <div class="text-center mb-12">
-                <span class="block text-amber-400 text-sm font-semibold tracking-wider uppercase mb-2">Restons en contact</span>
-                <h2 class="text-2xl sm:text-4xl font-bold section-title">Me contacter</h2>
-                <div class="h-1 w-16 bg-gradient-to-r from-amber-500 to-pink-500 mx-auto mt-4 rounded-full"></div>
+                <span class="kicker">Restons en contact</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl section-title">Me <span class="hl">contacter</span></h2>
                 <p class="text-gray-400 mt-6 max-w-2xl mx-auto">Vous avez un projet en tête ou souhaitez discuter d'une opportunité de collaboration ? N'hésitez pas à me contacter.</p>
             </div>
 
@@ -1268,7 +1262,7 @@
                                 </div>
                                 <div>
                                     <p class="text-sm text-gray-400">Téléphone</p>
-                                    <a href="tel:+2250787758048" class="font-medium hover:text-amber-400 transition-colors">+225 07 877 58 04 85</a>
+                                    <a href="tel:+2250787758048" class="font-medium hover:text-amber-400 transition-colors">+225 07 87 58 04 85</a>
                                 </div>
                             </div>
                         </div>
@@ -1414,8 +1408,33 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Bottom Navigation (mobile) -->
+    <nav id="bottom-nav" aria-label="Navigation principale"
+        class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-gray-900/90 backdrop-blur-lg border-t border-gray-800"
+        style="padding-bottom: env(safe-area-inset-bottom);">
+        <div class="grid grid-cols-5 h-16 text-gray-400">
+            <a href="#accueil" class="flex flex-col items-center justify-center gap-1 text-[11px] hover:text-amber-400 transition-colors"><i class="fas fa-home text-lg"></i>Accueil</a>
+            <a href="#apropos" class="flex flex-col items-center justify-center gap-1 text-[11px] hover:text-amber-400 transition-colors"><i class="fas fa-user text-lg"></i>À propos</a>
+            <a href="#realisations" class="flex flex-col items-center justify-center gap-1 text-[11px] hover:text-amber-400 transition-colors"><i class="fas fa-map text-lg"></i>Projets</a>
+            <a href="#cv" class="flex flex-col items-center justify-center gap-1 text-[11px] hover:text-amber-400 transition-colors"><i class="fas fa-file-alt text-lg"></i>CV</a>
+            <a href="#contact" class="flex flex-col items-center justify-center gap-1 text-[11px] hover:text-amber-400 transition-colors"><i class="fas fa-envelope text-lg"></i>Contact</a>
+        </div>
+    </nav>
+
     <!-- Scripts -->
     <script>
+        // Bottom nav : surligne la section visible
+        const bottomLinks = document.querySelectorAll('#bottom-nav a');
+        window.addEventListener('scroll', () => {
+            let current = bottomLinks[0];
+            bottomLinks.forEach(link => {
+                const section = document.querySelector(link.getAttribute('href'));
+                if (section && section.offsetTop - 120 <= window.scrollY) current = link;
+            });
+            bottomLinks.forEach(link => link.classList.toggle('active', link === current));
+        }, { passive: true });
+        bottomLinks[0].classList.add('active');
+
         // Toggle du menu mobile
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
