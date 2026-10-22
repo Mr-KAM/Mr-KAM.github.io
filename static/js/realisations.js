@@ -144,7 +144,7 @@ const realisationsData = [
         id: 16,
         titre: "Occupation du sol - Site INP-HB",
         description: "Cartographie de l'occupation du sol du campus de l'INP-HB à Yamoussoukro.",
-        image: "static/img crea/cartes/Occupation du sol du site de l'INP-HB v2.pdf",
+        image: "static/img crea/cartes/Occupation du sol du site de l'INP-HB v2.jpg",
         categorie: "cartographie",
         tags: ["INP-HB", "Campus", "Yamoussoukro"],
         annee: 2023,
