@@ -10,6 +10,14 @@
     <meta name="description" content="Articles et tutoriels sur les SIG, le Machine Learning, l'agriculture de précision, les tableaux de bord et la science des données par Anicet Cyrille KAMBOU.">
     <meta name="keywords" content="blog SIG, géomatique, machine learning agriculture, tableaux de bord, QGIS, Python, data science">
     <meta name="author" content="Anicet Cyrille KAMBOU">
+
+    <!-- Open Graph (aperçu LinkedIn / Facebook / WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | Anicet Cyrille KAMBOU">
+    <meta property="og:description" content="Articles et tutoriels sur les SIG, le Machine Learning, l'agriculture de précision et la data visualisation.">
+    <meta property="og:url" content="https://mr-kam.github.io/blog.html">
+    <meta property="og:image" content="https://mr-kam.github.io/blog/img/introduction-sig-large.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="static/js/theme.js"></script>
@@ -138,12 +146,56 @@
 
             <!-- Grid d'articles -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Article 5 : Algorithmique -->
+                <article class="card-modern overflow-hidden group" data-category="ia">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-pink-500/20 to-gray-900 flex items-center justify-center">
+                            <i class="fas fa-code-branch text-5xl text-pink-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-pink-500/20 text-pink-400 px-3 py-1 rounded-full text-xs font-medium border border-pink-500/30">Algorithmique</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-400">
+                            <span><i class="far fa-calendar-alt text-pink-400 mr-2"></i>2 Nov 2026</span>
+                            <span><i class="far fa-clock text-pink-400 mr-2"></i>14 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-pink-400 transition-colors">Pourquoi apprendre l'algorithmique en 2026 ?</h3>
+                        <p class="text-gray-400 text-sm mb-4">À l'ère de l'IA et des prompts, savoir structurer et découper un problème vaut plus qu'une syntaxe. Exemple agronomique pas à pas.</p>
+                        <a href="blog/pourquoi-apprendre-algorithmique.html" class="text-pink-400 hover:text-pink-300 font-medium text-sm flex items-center">
+                            Lire l'article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 : SIG - EUDR -->
+                <article class="card-modern overflow-hidden group" data-category="sig">
+                    <div class="relative overflow-hidden h-48">
+                        <div class="w-full h-full bg-gradient-to-br from-green-500/20 to-amber-500/20 flex items-center justify-center">
+                            <i class="fas fa-tree text-5xl text-amber-400/50"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-medium border border-amber-500/30">SIG</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-4 mb-4 text-sm text-gray-400">
+                            <span><i class="far fa-calendar-alt text-amber-400 mr-2"></i>2 Nov 2026</span>
+                            <span><i class="far fa-clock text-amber-400 mr-2"></i>15 min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 group-hover:text-amber-400 transition-colors">EUDR et cacao ivoirien : cartographier contre la déforestation</h3>
+                        <p class="text-gray-400 text-sm mb-4">Géolocalisation des parcelles, contrôle des polygones et vérification « zéro déforestation » avec le SIG.</p>
+                        <a href="blog/eudr-cacao-ivoirien.html" class="text-amber-400 hover:text-amber-300 font-medium text-sm flex items-center">
+                            Lire l'article <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+
                 <!-- Article 1 : SIG -->
                 <article class="card-modern overflow-hidden group" data-category="sig">
                     <div class="relative overflow-hidden h-48">
-                        <div class="w-full h-full bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center">
-                            <i class="fas fa-map-marked-alt text-5xl text-amber-400/50"></i>
-                        </div>
+                        <img src="blog/img/introduction-sig-carre.jpg" alt="Illustration de l'article Introduction aux SIG" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute top-4 right-4">
                             <span class="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-medium border border-amber-500/30">SIG</span>
                         </div>
@@ -269,8 +321,9 @@
                 <div>
                     <h3 class="text-lg font-bold mb-6">Newsletter</h3>
                     <p class="text-gray-400 mb-4 text-sm">Restez informé de mes derniers projets et publications.</p>
-                    <form class="space-y-3">
-                        <input type="email" placeholder="Votre email"
+                    <form action="https://formspree.io/f/xanybjok" method="POST" class="space-y-3">
+                        <input type="hidden" name="_subject" value="Inscription newsletter">
+                        <input type="email" name="email" required placeholder="Votre email" aria-label="Votre email"
                             class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent text-sm">
                         <button type="submit" class="btn-primary w-full py-3 text-gray-900 text-sm font-medium">
                             <i class="fas fa-paper-plane mr-2"></i>S'abonner

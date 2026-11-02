@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pourquoi apprendre l'algorithmique en 2026 ? | Blog A.C. KAMBOU</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="À l'ère de l'IA et des prompts, la logique algorithmique reste la compétence clé : structurer un problème, le découper et vérifier la solution. Origines, langages et exemple agronomique pas à pas.">
+    <meta name="keywords" content="algorithmique, algorithme, pseudo-code, IA, prompt, Python, programmation, agronomie, irrigation, bilan hydrique, Côte d'Ivoire">
+    <meta name="author" content="Anicet Cyrille KAMBOU">
+
+    <!-- Open Graph (aperçu LinkedIn / Facebook / WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Pourquoi apprendre l'algorithmique en 2026 ?">
+    <meta property="og:description" content="À l'ère de l'IA, savoir structurer et découper un problème vaut plus que connaître une syntaxe. Exemple agronomique pas à pas.">
+    <meta property="og:url" content="https://mr-kam.github.io/blog/pourquoi-apprendre-algorithmique.html">
+    <meta property="og:image" content="https://mr-kam.github.io/static/img%20profile/pp.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../static/js/theme.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-primary {
+            background: linear-gradient(135deg, #d4ff3f 0%, #d4ff3f 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #d4ff3f, #d4ff3f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-modern {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 255, 63, 0.1);
+            border-radius: 20px;
+        }
+
+        .card-modern:hover {
+            border-color: rgba(212, 255, 63, 0.4);
+        }
+
+        article img {
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        article h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1rem;
+            background: linear-gradient(135deg, #d4ff3f, #d4ff3f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: #d4ff3f;
+        }
+
+        article p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+
+        article ul, article ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            color: #d1d5db;
+        }
+
+        article li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        article strong {
+            color: #d4ff3f;
+            font-weight: 600;
+        }
+
+        article code {
+            background: rgba(212, 255, 63, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            color: #d4ff3f;
+            font-family: 'Courier New', monospace;
+        }
+
+        .highlight-box {
+            background: linear-gradient(145deg, rgba(212, 255, 63, 0.1), rgba(212, 255, 63, 0.1));
+            border-left: 4px solid #d4ff3f;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        article table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            color: #d1d5db;
+            font-size: 0.95rem;
+        }
+
+        article th, article td {
+            border: 1px solid #374151;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        article th {
+            background: rgba(212, 255, 63, 0.1);
+            color: #d4ff3f;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/css/theme.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
+</head>
+
+<body class="bg-gray-900 text-white" data-prismjs-copy="Copier" data-prismjs-copy-success="Copié !" data-prismjs-copy-error="Échec">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="../index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fas fa-globe-africa text-gray-900"></i>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">A.C.KAMBOU</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article -->
+    <main class="pt-24 pb-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- En-tête de l'article -->
+            <header class="mb-12">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs font-semibold border border-pink-500/30">
+                        <i class="fas fa-code-branch mr-1"></i>Algorithmique
+                    </span>
+                    <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs">
+                        <i class="far fa-calendar-alt mr-1"></i>2 Novembre 2026
+                    </span>
+                    <span class="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs">
+                        <i class="far fa-clock mr-1"></i>14 min de lecture
+                    </span>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Pourquoi apprendre l'algorithmique en 2026 ?
+                </h1>
+
+                <p class="text-xl text-gray-300 mb-6">
+                    L'IA écrit du code, mais elle ne pense pas le problème à votre place. Origines, langages, prompts, et un exemple agronomique découpé pas à pas.
+                </p>
+
+                <div class="flex items-center gap-4 p-6 card-modern">
+                    <img src="../static/img profile/photo2.jpg" alt="Anicet Cyrille KAMBOU" class="w-16 h-16 rounded-full border-2 border-amber-500">
+                    <div>
+                        <p class="font-semibold text-lg">Anicet Cyrille KAMBOU</p>
+                        <p class="text-sm text-gray-400">Ingénieur Agronome | Expert SIG & Data Science</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenu de l'article -->
+            <article class="prose prose-lg prose-invert max-w-none">
+                <div class="highlight-box">
+                    <p class="mb-0"><i class="fas fa-info-circle text-amber-400 mr-2"></i><strong>Note :</strong> Cet article s'adresse aux étudiants, agronomes, techniciens et curieux qui se demandent s'il vaut encore la peine d'apprendre à programmer à l'heure de l'IA. Aucune connaissance préalable n'est nécessaire.</p>
+                </div>
+
+                <p>
+                    En 2026, il suffit de demander à une IA « écris-moi un programme qui… » pour obtenir du code en quelques secondes. La question revient donc souvent dans mes cours à l'INP-HB : <strong>à quoi bon apprendre l'algorithmique ?</strong>
+                </p>
+
+                <p>
+                    Ma réponse est simple : l'IA a rendu la <em>syntaxe</em> bon marché, mais pas la <em>logique</em>. Savoir découper un problème, choisir les bonnes étapes et vérifier le résultat est devenu la compétence qui fait la différence. C'est exactement ce qu'enseigne l'algorithmique.
+                </p>
+
+                <h2>Qu'est-ce qu'un algorithme ?</h2>
+
+                <p>
+                    Un <strong>algorithme</strong> est une suite finie et ordonnée d'instructions précises qui permet de résoudre un problème. Il prend des <strong>entrées</strong>, applique un <strong>traitement</strong> et produit des <strong>sorties</strong>.
+                </p>
+
+                <p>
+                    Vous en utilisez déjà sans le savoir. Un <strong>itinéraire technique</strong> en agronomie est un algorithme : préparer le sol, semer à telle densité, fertiliser à tel stade, <em>si</em> l'attaque de ravageurs dépasse un seuil <em>alors</em> traiter, récolter à maturité. Il y a des étapes, des conditions et des répétitions. Il ne manque que la rigueur d'écriture.
+                </p>
+
+                <h2>Une histoire de plus de 3 000 ans</h2>
+
+                <figure>
+                    <div class="diagram">
+                        <svg viewBox="0 0 800 190" role="img" aria-labelledby="algo-frise">
+                        <title id="algo-frise">Frise chronologique de l'algorithmique : Babylone, Euclide, Al-Khwârizmî, Ada Lovelace, Alan Turing, IA générative</title>
+                        <line x1="30" y1="80" x2="770" y2="80" stroke="#333" stroke-width="2"/>
+                        <text x="70" y="52" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">~1800 av. J.-C.</text>
+                        <circle cx="70" cy="80" r="7" fill="#161616" stroke="#d4ff3f" stroke-width="2"/>
+                        <text x="70" y="118" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Babylone</text>
+                        <text x="70" y="140" text-anchor="middle" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">tablettes de calcul</text>
+                        <text x="202" y="52" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">~300 av. J.-C.</text>
+                        <circle cx="202" cy="80" r="7" fill="#161616" stroke="#d4ff3f" stroke-width="2"/>
+                        <text x="202" y="118" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Euclide</text>
+                        <text x="202" y="140" text-anchor="middle" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">calcul du PGCD</text>
+                        <text x="334" y="52" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">IXe siècle</text>
+                        <circle cx="334" cy="80" r="7" fill="#161616" stroke="#d4ff3f" stroke-width="2"/>
+                        <text x="334" y="118" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Al-Khwârizmî</text>
+                        <text x="334" y="140" text-anchor="middle" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">Bagdad</text>
+                        <text x="466" y="52" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">1843</text>
+                        <circle cx="466" cy="80" r="7" fill="#161616" stroke="#d4ff3f" stroke-width="2"/>
+                        <text x="466" y="118" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Ada Lovelace</text>
+                        <text x="466" y="140" text-anchor="middle" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">premier programme</text>
+                        <text x="598" y="52" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">1936</text>
+                        <circle cx="598" cy="80" r="7" fill="#161616" stroke="#d4ff3f" stroke-width="2"/>
+                        <text x="598" y="118" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Alan Turing</text>
+                        <text x="598" y="140" text-anchor="middle" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">machine de Turing</text>
+                        <text x="730" y="52" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">années 2020</text>
+                        <circle cx="730" cy="80" r="9" fill="#d4ff3f" stroke="#d4ff3f" stroke-width="2"/>
+                        <text x="730" y="118" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">IA générative</text>
+                        <text x="730" y="140" text-anchor="middle" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">l'ère du prompt</text>
+                        </svg>
+                    </div>
+                    <figcaption><i class="fas fa-history"></i>Plus de 3 000 ans d'algorithmes : la logique est bien plus ancienne que l'ordinateur.</figcaption>
+                </figure>
+
+                <ul>
+                    <li><strong>Babylone (vers 1800 av. J.-C.) :</strong> des tablettes d'argile décrivent déjà des procédures de calcul pas à pas, par exemple pour des partages ou des racines carrées.</li>
+                    <li><strong>Euclide (vers 300 av. J.-C.) :</strong> son algorithme de calcul du plus grand commun diviseur (PGCD) est encore enseigné et utilisé aujourd'hui.</li>
+                    <li><strong>Al-Khwârizmî (IX<sup>e</sup> siècle) :</strong> ce savant de la Maison de la Sagesse à Bagdad a écrit un traité sur le calcul avec les chiffres indiens. Sa traduction latine commence par « <em>Algoritmi dixit</em> » (« Al-Khwârizmî a dit »). C'est de son nom que vient le mot <strong>algorithme</strong>, et le mot <em>algèbre</em> vient du titre d'un autre de ses ouvrages.</li>
+                    <li><strong>Ada Lovelace (1843) :</strong> elle publie ce que l'on considère comme le premier programme, destiné à la machine analytique de Charles Babbage, une machine qui ne sera jamais construite.</li>
+                    <li><strong>Alan Turing (1936) :</strong> il définit mathématiquement ce qu'un calcul automatique peut ou ne peut pas faire. C'est la base théorique de l'informatique.</li>
+                </ul>
+
+                <p>
+                    Retenez une chose : <strong>l'algorithme est plus ancien que l'ordinateur</strong>. C'est une manière de penser, pas une technologie. Les machines ont changé mille fois, la logique est restée la même.
+                </p>
+
+                <h2>Des centaines de langages, une seule logique</h2>
+
+                <p>
+                    Python, R, JavaScript, SQL, Java, C, Julia… Il existe des centaines de langages de programmation, et de nouveaux apparaissent chaque année. Un débutant peut se sentir perdu : par lequel commencer ? Lequel sera encore utilisé dans dix ans ?
+                </p>
+
+                <p>
+                    La bonne nouvelle, c'est qu'ils reposent tous sur les <strong>mêmes briques algorithmiques</strong> :
+                </p>
+
+                <ul>
+                    <li class="ico"><i class="fas fa-box"></i><strong>Les variables :</strong> stocker une valeur (un rendement, une dose, une date)</li>
+                    <li class="ico"><i class="fas fa-code-branch"></i><strong>Les conditions :</strong> SI le sol est sec ALORS irriguer, SINON attendre</li>
+                    <li class="ico"><i class="fas fa-redo"></i><strong>Les boucles :</strong> répéter un calcul pour chaque jour, chaque parcelle, chaque producteur</li>
+                    <li class="ico"><i class="fas fa-cubes"></i><strong>Les fonctions :</strong> regrouper des étapes pour les réutiliser</li>
+                </ul>
+
+                <p>Voici la même instruction, « calculer l'évapotranspiration de la culture », dans quatre langages :</p>
+
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Langage</th>
+                                <th>Instruction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Pseudo-code</td><td><code>etc ← kc × et0</code></td></tr>
+                            <tr><td>Python</td><td><code>etc = kc * et0</code></td></tr>
+                            <tr><td>R</td><td><code>etc &lt;- kc * et0</code></td></tr>
+                            <tr><td>JavaScript</td><td><code>const etc = kc * et0;</code></td></tr>
+                            <tr><td>SQL</td><td><code>SELECT kc * et0 AS etc FROM meteo;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    La syntaxe change, l'idée ne change pas. Quelqu'un qui maîtrise la logique algorithmique apprend un nouveau langage en quelques semaines. Quelqu'un qui n'a appris qu'une syntaxe doit tout recommencer.
+                </p>
+
+                <h2>À l'ère de l'IA, la logique vaut plus que la syntaxe</h2>
+
+                <p>
+                    Les assistants IA écrivent du code correct dans la plupart des langages. Mais ils ne savent pas, à votre place :
+                </p>
+
+                <ol>
+                    <li><strong>Quel est le vrai problème.</strong> « Améliorer les rendements » n'est pas un problème qu'on peut programmer. « Calculer chaque jour s'il faut irriguer et combien » en est un.</li>
+                    <li><strong>Comment le découper.</strong> Un problème complexe se résout en une suite de petits problèmes simples. C'est le cœur de l'algorithmique.</li>
+                    <li><strong>Si le résultat est juste.</strong> Un code peut tourner sans erreur et donner une mauvaise réponse. Pour le voir, il faut savoir ce qu'il est censé faire, étape par étape.</li>
+                    <li><strong>Qui est responsable.</strong> Si un programme recommande une mauvaise dose d'engrais ou d'irrigation, ce n'est pas l'IA qui perd la récolte.</li>
+                </ol>
+
+                <div class="highlight-box">
+                    <p class="mb-0"><i class="fas fa-lightbulb text-amber-400 mr-2"></i><strong>À retenir :</strong> l'IA est un excellent traducteur de la logique vers le code. Mais elle traduit ce que vous lui donnez. Une pensée confuse produit un code confus, très vite.</p>
+                </div>
+
+                <h3>Un bon prompt est un algorithme en langage naturel</h3>
+
+                <p>
+                    Comparez ces deux demandes faites à une IA :
+                </p>
+
+                <pre data-language="Prompt vague"><code class="language-none">Fais-moi un programme pour l'irrigation du maïs.</code></pre>
+
+                <pre data-language="Prompt structuré"><code class="language-none">Contexte : je suis agronome. Je veux planifier l'irrigation d'une parcelle de maïs.
+
+Entrées :
+- réserve utile du sol RU = 100 mm, stock d'eau initial = 60 mm
+- coefficient cultural Kc = 1,2
+- deux listes journalières : ET0 (mm) et pluie (mm)
+
+Règles, dans cet ordre, pour chaque jour :
+1. stock = stock + 0,8 × pluie − Kc × ET0
+2. si stock > RU, alors stock = RU (l'excès est drainé)
+3. si stock &lt; 45 mm, irriguer : dose = RU − stock, puis stock = RU
+
+Sortie : la liste des jours d'irrigation et la dose en mm, arrondie à 0,1.
+
+Contraintes : Python standard, sans bibliothèque externe, une fonction commentée en français.
+
+Test : avec ET0 = [5; 4,5; 5; 5,5; 5; 4] et pluie = [0; 12; 0; 0; 0; 30],
+le résultat attendu est : jour 5, 60,4 mm.</code></pre>
+
+                <p>
+                    Le premier prompt laisse l'IA tout inventer : les règles, les seuils, le format. Le second contient des <strong>entrées</strong>, des <strong>règles ordonnées</strong>, des <strong>conditions</strong>, une <strong>sortie</strong> et un <strong>cas de test</strong>. C'est un algorithme. Et pour l'écrire, il faut avoir appris à penser de cette façon.
+                </p>
+
+                <h2>La méthode : du problème à la solution</h2>
+
+                <p>La démarche algorithmique tient en cinq étapes, quel que soit le domaine :</p>
+
+                <figure>
+                    <div class="diagram">
+                        <svg viewBox="0 0 800 170" role="img" aria-labelledby="algo-methode">
+                        <title id="algo-methode">Méthode algorithmique en 5 étapes : comprendre, découper, écrire l'algorithme, traduire en code ou en prompt, tester</title>
+                        <defs><marker id="algo-methode-fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d4ff3f"/></marker></defs>
+                        <rect x="10" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="74" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">01</text>
+                        <text x="74" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Comprendre</text>
+                        <text x="74" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">le problème</text>
+                        <text x="74" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Entrées · sorties</text>
+                        <line x1="142" y1="85" x2="169" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#algo-methode-fl)"/>
+                        <rect x="173" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="237" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">02</text>
+                        <text x="237" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Découper</text>
+                        <text x="237" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">en étapes</text>
+                        <text x="237" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Sous-problèmes</text>
+                        <line x1="305" y1="85" x2="332" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#algo-methode-fl)"/>
+                        <rect x="336" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="400" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">03</text>
+                        <text x="400" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Écrire</text>
+                        <text x="400" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">l'algorithme</text>
+                        <text x="400" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Pseudo-code</text>
+                        <line x1="468" y1="85" x2="495" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#algo-methode-fl)"/>
+                        <rect x="499" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="563" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">04</text>
+                        <text x="563" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Traduire</text>
+                        <text x="563" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">en code</text>
+                        <text x="563" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Python · prompt</text>
+                        <line x1="631" y1="85" x2="658" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#algo-methode-fl)"/>
+                        <rect x="662" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#d4ff3f"/>
+                        <text x="726" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">05</text>
+                        <text x="726" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Tester</text>
+                        <text x="726" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">et vérifier</text>
+                        <text x="726" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Cas limites</text>
+                        </svg>
+                    </div>
+                    <figcaption><i class="fas fa-project-diagram"></i>La même démarche sert à écrire un programme ou un prompt.</figcaption>
+                </figure>
+
+                <h2>Exemple agronomique : quand irriguer une parcelle de maïs ?</h2>
+
+                <p>
+                    Appliquons la méthode à un vrai problème de terrain. Un producteur de maïs dispose d'un système d'irrigation, mais l'eau et le carburant de la pompe coûtent cher. Il veut savoir <strong>quel jour irriguer et quelle quantité apporter</strong>.
+                </p>
+
+                <h3>Étape 1 : Comprendre le problème</h3>
+
+                <p>
+                    On raisonne avec le <strong>bilan hydrique</strong> : le sol est un réservoir. La pluie le remplit, la plante le vide en transpirant.
+                </p>
+
+                <ul>
+                    <li><strong>Réserve utile (RU) :</strong> la quantité d'eau maximale que le sol peut mettre à disposition de la plante. Ici, 100 mm.</li>
+                    <li><strong>ET0 :</strong> l'évapotranspiration de référence, donnée par la météo (en mm/jour). Elle mesure la « demande en eau » de l'atmosphère.</li>
+                    <li><strong>Kc :</strong> le coefficient cultural. Pour le maïs en pleine croissance, la FAO indique environ 1,2.</li>
+                    <li><strong>ETc = Kc × ET0 :</strong> l'eau réellement consommée par la culture chaque jour.</li>
+                    <li><strong>Seuil d'irrigation :</strong> la plante n'est pas stressée tant qu'elle a consommé moins de 55 % de la réserve (valeur FAO pour le maïs). On irrigue donc quand le stock descend sous 100 × (1 − 0,55) = <strong>45 mm</strong>.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p class="mb-0"><i class="fas fa-exclamation-triangle text-amber-400 mr-2"></i><strong>Simplification :</strong> on suppose que 80 % de la pluie profite à la culture (le reste ruisselle ou s'évapore) et que l'irrigation recharge le sol à sa capacité. Un vrai modèle tiendrait compte du stade de la culture, du type de sol et de l'efficience du système d'irrigation. Le but ici est d'illustrer la démarche.</p>
+                </div>
+
+                <h3>Étape 2 : Identifier les entrées et les sorties</h3>
+
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Donnée</th>
+                                <th>Exemple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Entrée (constante)</td><td>Réserve utile RU, seuil, Kc</td><td>100 mm, 45 mm, 1,2</td></tr>
+                            <tr><td>Entrée (état initial)</td><td>Stock d'eau dans le sol au départ</td><td>60 mm</td></tr>
+                            <tr><td>Entrée (série)</td><td>ET0 et pluie, jour par jour</td><td>Station météo ou données satellitaires</td></tr>
+                            <tr><td>Sortie</td><td>Jours d'irrigation et doses</td><td>« Jour 5 : 60,4 mm »</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Étape 3 : Découper en sous-problèmes</h3>
+
+                <p>Pour <em>chaque jour</em>, le problème se réduit à quatre petites questions :</p>
+
+                <ol>
+                    <li>Combien d'eau la pluie a-t-elle apportée ? (0,8 × pluie)</li>
+                    <li>Combien la culture a-t-elle consommé ? (Kc × ET0)</li>
+                    <li>Le sol a-t-il débordé ? Si le stock dépasse RU, l'excès est perdu par drainage.</li>
+                    <li>Le stock est-il sous le seuil ? Si oui, calculer la dose, la noter, et remettre le stock à RU.</li>
+                </ol>
+
+                <p>
+                    Chaque sous-problème est maintenant trivial. C'est toute la puissance du découpage : un problème qui semblait « agronomique et compliqué » devient une suite d'opérations simples.
+                </p>
+
+                <h3>Étape 4 : Représenter le raisonnement</h3>
+
+                <p>Avant d'écrire la moindre ligne, un organigramme permet de vérifier que la logique tient :</p>
+
+                <figure>
+                    <div class="diagram">
+                        <svg viewBox="0 0 680 610" role="img" aria-labelledby="algo-orga">
+                        <title id="algo-orga">Organigramme : lire les données, pour chaque jour calculer le bilan hydrique, plafonner à la réserve utile, si le stock est sous le seuil irriguer, puis passer au jour suivant</title>
+                        <defs><marker id="algo-orga-fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d4ff3f"/></marker></defs>
+                        <rect x="200" y="10" width="120" height="36" rx="18" fill="#d4ff3f"/>
+                        <text x="260" y="33" text-anchor="middle" fill="#0a0a0a" font-size="14" font-weight="700" font-family="Archivo, sans-serif">Début</text>
+                        <line x1="260" y1="46" x2="260" y2="68" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <polygon points="150,70 390,70 370,116 130,116" fill="#161616" stroke="#333"/>
+                        <text x="260" y="98" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">Lire RU, SEUIL, KC, stock</text>
+                        <line x1="260" y1="116" x2="260" y2="138" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <rect x="150" y="140" width="220" height="44" rx="6" fill="#161616" stroke="#d4ff3f"/>
+                        <text x="260" y="167" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">Pour chaque jour j</text>
+                        <line x1="260" y1="184" x2="260" y2="206" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <rect x="90" y="208" width="340" height="44" rx="6" fill="#161616" stroke="#333"/>
+                        <text x="260" y="235" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">stock ← stock + 0.8×pluie − KC×ET0</text>
+                        <line x1="260" y1="252" x2="260" y2="274" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <rect x="150" y="276" width="220" height="44" rx="6" fill="#161616" stroke="#333"/>
+                        <text x="260" y="303" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">stock ← min(stock, RU)</text>
+                        <line x1="260" y1="320" x2="260" y2="342" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <polygon points="260,344 370,394 260,444 150,394" fill="#161616" stroke="#333"/>
+                        <text x="260" y="399" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">stock &lt; SEUIL ?</text>
+                        <line x1="370" y1="394" x2="438" y2="394" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <text x="392" y="386" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">Oui</text>
+                        <rect x="440" y="350" width="190" height="88" rx="6" fill="#161616" stroke="#d4ff3f"/>
+                        <text x="535" y="378" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">dose ← RU − stock</text>
+                        <text x="535" y="398" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">afficher j, dose</text>
+                        <text x="535" y="418" text-anchor="middle" fill="#f2f2f2" font-size="13" font-family="JetBrains Mono, monospace">stock ← RU</text>
+                        <polyline points="535,438 535,494 268,494" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <line x1="260" y1="444" x2="260" y2="488" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <text x="270" y="470" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif">Non</text>
+                        <circle cx="260" cy="494" r="5" fill="#d4ff3f"/>
+                        <polyline points="260,499 260,530 40,530 40,162 146,162" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <text x="30" y="350" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif" transform="rotate(-90 30 350)" text-anchor="middle">jour suivant</text>
+                        <polyline points="370,162 660,162 660,580 324,580" stroke="#d4ff3f" stroke-width="2" fill="none" marker-end="url(#algo-orga-fl)"/>
+                        <text x="515" y="152" fill="#9a9a9a" font-size="12" font-family="Archivo, sans-serif" text-anchor="middle">plus de jours</text>
+                        <rect x="200" y="562" width="120" height="36" rx="18" fill="#d4ff3f"/>
+                        <text x="260" y="585" text-anchor="middle" fill="#0a0a0a" font-size="14" font-weight="700" font-family="Archivo, sans-serif">Fin</text>
+                        </svg>
+                    </div>
+                    <figcaption><i class="fas fa-sitemap"></i>Organigramme de l'algorithme : une boucle sur les jours, deux conditions, trois actions.</figcaption>
+                </figure>
+
+                <h3>Étape 5 : Écrire l'algorithme</h3>
+
+                <p>
+                    Le <strong>pseudo-code</strong> décrit la logique en français structuré, indépendamment de tout langage. C'est ce que l'on écrit sur papier, au tableau, ou dans un prompt :
+                </p>
+
+                <pre data-language="Pseudo-code"><code class="language-algo">ALGORITHME PlanifierIrrigation
+CONSTANTES
+    RU ← 100          // réserve utile du sol (mm)
+    SEUIL ← 45        // RU × (1 − 0.55)
+    KC ← 1.2          // coefficient cultural du maïs
+VARIABLES
+    stock, dose : REEL
+    et0, pluie : TABLEAU de REEL
+    j, n : ENTIER
+DEBUT
+    LIRE stock, et0, pluie, n
+    POUR j DE 1 A n FAIRE
+        stock ← stock + 0.8 × pluie[j] − KC × et0[j]
+        SI stock > RU ALORS
+            stock ← RU            // l'excès est drainé
+        FINSI
+        SI stock &lt; SEUIL ALORS
+            dose ← RU − stock
+            ECRIRE "Jour ", j, " : irriguer ", dose, " mm"
+            stock ← RU            // le sol est rechargé
+        FINSI
+    FINPOUR
+FIN</code></pre>
+
+                <h3>Étape 6 : Tester à la main</h3>
+
+                <p>
+                    Avant de faire confiance à un programme, qu'il soit écrit par vous ou par une IA, on vérifie l'algorithme sur un petit exemple. C'est le <strong>tableau de suivi</strong> (ou « trace ») :
+                </p>
+
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Jour</th>
+                                <th>ET0 (mm)</th>
+                                <th>Pluie (mm)</th>
+                                <th>ETc = 1,2 × ET0</th>
+                                <th>Stock après bilan</th>
+                                <th>Décision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Départ</td><td>–</td><td>–</td><td>–</td><td>60,0</td><td>–</td></tr>
+                            <tr><td>1</td><td>5,0</td><td>0</td><td>6,0</td><td>54,0</td><td>Attendre</td></tr>
+                            <tr><td>2</td><td>4,5</td><td>12</td><td>5,4</td><td>54,0 + 9,6 − 5,4 = 58,2</td><td>Attendre</td></tr>
+                            <tr><td>3</td><td>5,0</td><td>0</td><td>6,0</td><td>52,2</td><td>Attendre</td></tr>
+                            <tr><td>4</td><td>5,5</td><td>0</td><td>6,6</td><td>45,6</td><td>Attendre (juste au-dessus du seuil)</td></tr>
+                            <tr><td>5</td><td>5,0</td><td>0</td><td>6,0</td><td>39,6</td><td><strong>Irriguer 60,4 mm</strong>, stock remis à 100</td></tr>
+                            <tr><td>6</td><td>4,0</td><td>30</td><td>4,8</td><td>100 + 24 − 4,8 = 119,2 → 100</td><td>Attendre (19,2 mm drainés)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Ce petit tableau a testé les trois cas de l'algorithme : un jour normal, un jour d'irrigation et un jour de drainage. C'est exactement le « cas de test » que l'on a mis dans le prompt structuré plus haut.
+                </p>
+
+                <h3>Étape 7 : Traduire en Python</h3>
+
+                <p>
+                    Il ne reste plus qu'à traduire. Remarquez que chaque ligne du code correspond à une ligne du pseudo-code : c'est la partie que l'IA fait très bien, à condition de lui donner la logique.
+                </p>
+
+                <pre data-language="Python"><code class="language-python">RU = 100.0               # réserve utile du sol (mm)
+P = 0.55                 # fraction facilement utilisable pour le maïs (FAO-56)
+SEUIL = RU * (1 - P)     # 45 mm : en dessous, la plante commence à stresser
+KC = 1.2                 # coefficient cultural du maïs en pleine croissance
+PLUIE_EFFICACE = 0.8     # hypothèse : 80 % de la pluie profite à la culture
+
+
+def planifier_irrigation(stock, et0, pluie):
+    """Retourne la liste des (jour, dose en mm) à irriguer."""
+    irrigations = []
+    for jour, (e, pl) in enumerate(zip(et0, pluie), start=1):
+        stock += PLUIE_EFFICACE * pl - KC * e   # bilan hydrique du jour
+        stock = min(stock, RU)                  # l'excès est drainé
+        if stock &lt; SEUIL:
+            dose = RU - stock
+            irrigations.append((jour, round(dose, 1)))
+            stock = RU                          # le sol est rechargé
+    return irrigations
+
+
+et0 = [5.0, 4.5, 5.0, 5.5, 5.0, 4.0]    # évapotranspiration de référence (mm/jour)
+pluie = [0, 12, 0, 0, 0, 30]            # pluie (mm/jour)
+
+for jour, dose in planifier_irrigation(60.0, et0, pluie):
+    print(f"Jour {jour} : irriguer {dose} mm")</code></pre>
+
+                <pre data-language="Résultat"><code class="language-none">Jour 5 : irriguer 60.4 mm</code></pre>
+
+                <p>
+                    Le programme donne exactement le résultat calculé à la main. Le même algorithme peut maintenant traiter une saison entière, des centaines de parcelles, ou être branché sur des données météo réelles. Et si demain vous devez l'écrire en R ou en JavaScript, la logique est déjà faite.
+                </p>
+
+                <h2>Comment s'y mettre en 2026 ?</h2>
+
+                <ul>
+                    <li class="ico"><i class="fas fa-pencil-alt"></i><strong>Commencez sur papier.</strong> Écrivez le pseudo-code d'un problème de votre métier avant de toucher un clavier.</li>
+                    <li class="ico"><i class="fab fa-python"></i><strong>Apprenez un seul langage à fond.</strong> Python est un excellent choix pour l'agronomie et la data.</li>
+                    <li class="ico"><i class="fas fa-dumbbell"></i><strong>Pratiquez régulièrement</strong> sur des exercices progressifs, par exemple sur France-IOI.</li>
+                    <li class="ico"><i class="fas fa-robot"></i><strong>Utilisez l'IA comme un tuteur, pas comme un raccourci.</strong> Demandez-lui d'expliquer une erreur ou de critiquer votre algorithme, plutôt que de vous donner la solution toute faite.</li>
+                    <li class="ico"><i class="fas fa-seedling"></i><strong>Travaillez sur vos propres données :</strong> rendements, relevés de pluie, suivi de pépinière. La motivation vient quand le problème est le vôtre.</li>
+                </ul>
+
+                <h2>Ressources pour aller plus loin</h2>
+
+                <ul>
+                    <li><strong>France-IOI :</strong> <a href="https://www.france-ioi.org" target="_blank" class="text-amber-400">france-ioi.org</a>, cours et exercices d'algorithmique gratuits, du débutant au confirmé</li>
+                    <li><strong>Tutoriel Python officiel (en français) :</strong> <a href="https://docs.python.org/fr/3/tutorial/" target="_blank" class="text-amber-400">docs.python.org/fr</a></li>
+                    <li><strong>Bilan hydrique et coefficients culturaux :</strong> <a href="https://www.fao.org/3/x0490e/x0490e00.htm" target="_blank" class="text-amber-400">FAO, Irrigation and Drainage Paper 56</a></li>
+                </ul>
+
+                <h2>Conclusion</h2>
+
+                <p>
+                    Apprendre l'algorithmique en 2026, ce n'est pas apprendre à taper du code plus vite qu'une IA. C'est apprendre à <strong>penser clairement</strong> : poser le bon problème, le découper, décrire la solution sans ambiguïté et vérifier qu'elle est juste. Ces compétences servent à écrire un programme, à rédiger un prompt efficace, mais aussi à concevoir un protocole d'essai ou un itinéraire technique.
+                </p>
+
+                <p>
+                    Les langages passeront, les outils d'IA changeront. La logique, elle, restera. Vous souhaitez former vos équipes ou vos étudiants à l'algorithmique appliquée à l'agriculture ? Consultez <a href="../formations.html" class="text-amber-400 hover:text-amber-300">mes formations</a> ou contactez-moi.
+                </p>
+
+                <div class="highlight-box mt-8">
+                    <p class="mb-2"><strong><i class="fas fa-book-open mr-2"></i>À lire aussi :</strong></p>
+                    <ul class="mb-0">
+                        <li><a href="ml-agriculture-precision.html" class="text-amber-400 hover:text-amber-300">Machine Learning pour l'Agriculture de Précision</a></li>
+                        <li><a href="introduction-sig.html" class="text-amber-400 hover:text-amber-300">Introduction aux Systèmes d'Information Géographique</a></li>
+                        <li><a href="eudr-cacao-ivoirien.html" class="text-amber-400 hover:text-amber-300">EUDR et cacao ivoirien : cartographier contre la déforestation</a></li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Section Partage et Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div>
+                        <p class="text-gray-400 text-sm mb-2">Partager cet article</p>
+                        <div class="flex gap-3">
+                            <a href="https://twitter.com/intent/tweet?url=https://mr-kam.github.io/blog/pourquoi-apprendre-algorithmique.html&text=Pourquoi apprendre l'algorithmique en 2026 ?"
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-500 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur Twitter">
+                                <i class="fab fa-twitter text-gray-300"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mr-kam.github.io/blog/pourquoi-apprendre-algorithmique.html"
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur LinkedIn">
+                                <i class="fab fa-linkedin-in text-gray-300"></i>
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mr-kam.github.io/blog/pourquoi-apprendre-algorithmique.html"
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-700 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur Facebook">
+                                <i class="fab fa-facebook-f text-gray-300"></i>
+                            </a>
+                            <a href="https://wa.me/?text=Pourquoi%20apprendre%20l'algorithmique%20en%202026%20%3F%20https://mr-kam.github.io/blog/pourquoi-apprendre-algorithmique.html"
+                               target="_blank"
+                               class="w-10 h-10 rounded-full bg-gray-800 hover:bg-green-600 flex items-center justify-center transition-colors"
+                               aria-label="Partager sur WhatsApp">
+                                <i class="fab fa-whatsapp text-gray-300"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="../blog.html" class="px-6 py-3 gradient-primary text-gray-900 font-semibold rounded-xl hover:scale-105 transition-transform">
+                        <i class="fas fa-arrow-left mr-2"></i>Retour au blog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8 border-t border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 text-sm">
+                © 2026 Anicet Cyrille KAMBOU. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script>
+        // Prism n'a pas de grammaire pour le pseudo-code français : définition minimale
+        Prism.languages.algo = {
+            comment: /\/\/.*/,
+            string: /"[^"]*"/,
+            keyword: /\b(?:ALGORITHME|CONSTANTES|VARIABLES|DEBUT|FIN|LIRE|ECRIRE|POUR|DE|A|FAIRE|FINPOUR|TANTQUE|FINTANTQUE|SI|ALORS|SINON|FINSI|RETOURNER|ET|OU|NON)\b/,
+            'class-name': /\b(?:REEL|ENTIER|TABLEAU|BOOLEEN|CHAINE)\b/,
+            number: /\b\d+(?:\.\d+)?\b/,
+            operator: /←|<=|>=|<>|[<>=+×−*\/-]/,
+            punctuation: /[(),:\[\]]/
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+
+</html>

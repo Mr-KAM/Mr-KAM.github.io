@@ -10,6 +10,14 @@
     <meta name="description" content="Comment l'intelligence artificielle révolutionne la gestion des exploitations agricoles en Côte d'Ivoire. Découvrez les applications du Machine Learning en agriculture.">
     <meta name="keywords" content="machine learning, agriculture de précision, IA, intelligence artificielle, agriculture Côte d'Ivoire, Python">
     <meta name="author" content="Anicet Cyrille KAMBOU">
+
+    <!-- Open Graph (aperçu LinkedIn / Facebook / WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Machine Learning pour l'Agriculture de Précision">
+    <meta property="og:description" content="Comment l'IA révolutionne la gestion des exploitations agricoles en Côte d'Ivoire.">
+    <meta property="og:url" content="https://mr-kam.github.io/blog/ml-agriculture-precision.html">
+    <meta property="og:image" content="https://mr-kam.github.io/static/img%20profile/pp.png">
+    <meta name="twitter:card" content="summary_large_image">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../static/js/theme.js"></script>
@@ -121,9 +129,10 @@
         }
     </style>
     <link rel="stylesheet" href="../static/css/theme.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white" data-prismjs-copy="Copier" data-prismjs-copy-success="Copié !" data-prismjs-copy-error="Échec">
     <!-- Navigation -->
     <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto px-6 py-4">
@@ -206,12 +215,18 @@
                     <li>Les pratiques culturales (date de semis, variété, fertilisation)</li>
                 </ul>
 
+                <figure>
+                    <img src="img/carte-pluviometrie-ci.jpg" alt="Carte des précipitations moyennes en Côte d'Ivoire en décembre 2021" width="1600" height="1131" loading="lazy">
+                    <figcaption><i class="fas fa-map"></i>Précipitations moyennes de décembre 2021 en Côte d'Ivoire, agrégées par hexagones. Ce type de variable climatique alimente les modèles de prédiction de rendement. Carte : A.C. KAMBOU.</figcaption>
+                </figure>
+
+
                 <p>
                     <strong>Algorithmes couramment utilisés :</strong> Random Forest, XGBoost, Réseaux de neurones
                 </p>
 
                 <div class="highlight-box">
-                    <p class="mb-2"><strong>💡 Cas d'usage :</strong> En Côte d'Ivoire</p>
+                    <p class="mb-2"><strong><i class="fas fa-lightbulb mr-2"></i>Cas d'usage :</strong> En Côte d'Ivoire</p>
                     <p class="mb-0">Un modèle de prédiction du rendement du maïs basé sur des données Sentinel-2 et météo peut aider les coopératives à anticiper la production et négocier les prix avant récolte.</p>
                 </div>
 
@@ -239,10 +254,10 @@
                 </p>
 
                 <ul>
-                    <li>✅ Économie d'eau (jusqu'à 30%)</li>
-                    <li>✅ Réduction des coûts énergétiques</li>
-                    <li>✅ Amélioration des rendements</li>
-                    <li>✅ Limitation du stress hydrique</li>
+                    <li class="ico"><i class="fas fa-check"></i>Économie d'eau (jusqu'à 30%)</li>
+                    <li class="ico"><i class="fas fa-check"></i>Réduction des coûts énergétiques</li>
+                    <li class="ico"><i class="fas fa-check"></i>Amélioration des rendements</li>
+                    <li class="ico"><i class="fas fa-check"></i>Limitation du stress hydrique</li>
                 </ul>
 
                 <h3>4. Classification des cultures par télédétection</h3>
@@ -260,9 +275,49 @@
 
                 <h2>Exemple de code : Prédiction de rendement avec Python</h2>
 
+                <figure>
+                    <div class="diagram">
+                        <svg viewBox="0 0 800 170" role="img" aria-labelledby="ml-flux">
+                        <title id="ml-flux">Pipeline de Machine Learning : collecte des données, préparation des variables, entraînement, évaluation, prédiction du rendement</title>
+                        <defs><marker id="ml-flux-fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#d4ff3f"/></marker></defs>
+                        <rect x="10" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="74" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">01</text>
+                        <text x="74" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Collecte</text>
+                        <text x="74" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">des données</text>
+                        <text x="74" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Climat · NDVI</text>
+                        <line x1="142" y1="85" x2="169" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#ml-flux-fl)"/>
+                        <rect x="173" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="237" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">02</text>
+                        <text x="237" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Préparation</text>
+                        <text x="237" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">des variables</text>
+                        <text x="237" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">pandas</text>
+                        <line x1="305" y1="85" x2="332" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#ml-flux-fl)"/>
+                        <rect x="336" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="400" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">03</text>
+                        <text x="400" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Entraînement</text>
+                        <text x="400" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">du modèle</text>
+                        <text x="400" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">Random Forest</text>
+                        <line x1="468" y1="85" x2="495" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#ml-flux-fl)"/>
+                        <rect x="499" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#333"/>
+                        <text x="563" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">04</text>
+                        <text x="563" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Évaluation</text>
+                        <text x="563" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">du modèle</text>
+                        <text x="563" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">MAE · R²</text>
+                        <line x1="631" y1="85" x2="658" y2="85" stroke="#d4ff3f" stroke-width="2" marker-end="url(#ml-flux-fl)"/>
+                        <rect x="662" y="15" width="128" height="140" rx="10" fill="#161616" stroke="#d4ff3f"/>
+                        <text x="726" y="46" text-anchor="middle" fill="#d4ff3f" font-size="13" font-family="JetBrains Mono, monospace">05</text>
+                        <text x="726" y="82" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">Prédiction</text>
+                        <text x="726" y="102" text-anchor="middle" fill="#f2f2f2" font-size="15" font-weight="700" font-family="Archivo, sans-serif">du rendement</text>
+                        <text x="726" y="134" text-anchor="middle" fill="#9a9a9a" font-size="11.5" font-family="JetBrains Mono, monospace">t/ha par parcelle</text>
+                        </svg>
+                    </div>
+                    <figcaption><i class="fas fa-project-diagram"></i>Les cinq étapes du script ci-dessous.</figcaption>
+                </figure>
+
+
                 <p>Voici un exemple simplifié de modèle de prédiction de rendement utilisant Random Forest :</p>
 
-                <pre><code>import pandas as pd
+                <pre data-language="Python"><code class="language-python">import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
@@ -362,7 +417,7 @@ print(feature_importance)</code></pre>
                 <h2>Cas d'étude : Projet pilote au Centre de la CI</h2>
 
                 <div class="highlight-box">
-                    <p class="mb-2"><strong>📊 Projet :</strong> Prédiction du rendement du maïs</p>
+                    <p class="mb-2"><strong><i class="fas fa-chart-bar mr-2"></i>Projet :</strong> Prédiction du rendement du maïs</p>
                     <p><strong>Zone :</strong> Région de Yamoussoukro<br>
                     <strong>Données :</strong> Images Sentinel-2 (NDVI), météo (API NASA Power), données sol<br>
                     <strong>Modèle :</strong> Random Forest<br>
@@ -408,11 +463,11 @@ print(feature_importance)</code></pre>
                 </p>
 
                 <ul>
-                    <li>✅ Adaptation au contexte local</li>
-                    <li>✅ Formation des acteurs</li>
-                    <li>✅ Partenariats public-privé-recherche</li>
-                    <li>✅ Infrastructures numériques (connectivité)</li>
-                    <li>✅ Collecte de données terrain</li>
+                    <li class="ico"><i class="fas fa-check"></i>Adaptation au contexte local</li>
+                    <li class="ico"><i class="fas fa-check"></i>Formation des acteurs</li>
+                    <li class="ico"><i class="fas fa-check"></i>Partenariats public-privé-recherche</li>
+                    <li class="ico"><i class="fas fa-check"></i>Infrastructures numériques (connectivité)</li>
+                    <li class="ico"><i class="fas fa-check"></i>Collecte de données terrain</li>
                 </ul>
 
                 <p>
@@ -420,12 +475,12 @@ print(feature_importance)</code></pre>
                 </p>
 
                 <div class="highlight-box mt-8">
-                    <p class="mb-2"><strong>💡 Vous souhaitez développer un projet de ML agricole ?</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-lightbulb mr-2"></i>Vous souhaitez développer un projet de ML agricole ?</strong></p>
                     <p class="mb-0">Je propose des formations et du conseil en IA appliquée à l'agriculture. N'hésitez pas à me contacter !</p>
                 </div>
 
                 <div class="highlight-box mt-4" style="border-left-color: #d4ff3f; background: linear-gradient(145deg, rgba(212, 255, 63, 0.1), rgba(212, 255, 63, 0.1));">
-                    <p class="mb-2"><strong>📚 Articles liés :</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-book-open mr-2"></i>Articles liés :</strong></p>
                     <ul class="mb-0">
                         <li><a href="introduction-sig.html" class="text-amber-400 hover:text-amber-300">Introduction aux Systèmes d'Information Géographique</a></li>
                         <li>Créer des Tableaux de Bord KPI Efficaces (à venir)</li>
@@ -476,6 +531,11 @@ print(feature_importance)</code></pre>
             </p>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 
 </html>

@@ -10,6 +10,14 @@
     <meta name="description" content="Guide complet pour débuter avec QGIS et les données géospatiales en Afrique de l'Ouest. Découvrez les fondamentaux des SIG et leurs applications.">
     <meta name="keywords" content="SIG, QGIS, géomatique, cartographie, données géospatiales, Afrique de l'Ouest">
     <meta name="author" content="Anicet Cyrille KAMBOU">
+
+    <!-- Open Graph (aperçu LinkedIn / Facebook / WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Introduction aux Systèmes d'Information Géographique">
+    <meta property="og:description" content="Guide complet pour débuter avec QGIS et les données géospatiales en Afrique de l'Ouest.">
+    <meta property="og:url" content="https://mr-kam.github.io/blog/introduction-sig.html">
+    <meta property="og:image" content="https://mr-kam.github.io/blog/img/introduction-sig-large.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../static/js/theme.js"></script>
@@ -106,9 +114,10 @@
         }
     </style>
     <link rel="stylesheet" href="../static/css/theme.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white" data-prismjs-copy="Copier" data-prismjs-copy-success="Copié !" data-prismjs-copy-error="Échec">
     <!-- Navigation -->
     <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto px-6 py-4">
@@ -162,6 +171,8 @@
 
             <!-- Contenu de l'article -->
             <article class="prose prose-lg prose-invert max-w-none">
+                <img src="img/introduction-sig-large.jpg" alt="Illustration : globe, cartes en couches, satellite et écran de SIG" width="1600" height="893" class="w-full h-auto">
+
                 <div class="highlight-box">
                     <p class="mb-0"><i class="fas fa-info-circle text-amber-400 mr-2"></i><strong>Note :</strong> Cet article s'adresse aux débutants en géomatique et aux professionnels souhaitant découvrir les SIG appliqués au contexte africain.</p>
                 </div>
@@ -197,11 +208,11 @@
                 </p>
 
                 <ul>
-                    <li>✅ <strong>Gratuit et open source</strong> : Aucun coût de licence</li>
-                    <li>✅ <strong>Multiplateforme</strong> : Fonctionne sur Windows, Mac et Linux</li>
-                    <li>✅ <strong>Communauté active</strong> : Documentation riche et forums d'entraide</li>
-                    <li>✅ <strong>Puissant</strong> : Rivalise avec les solutions commerciales</li>
-                    <li>✅ <strong>Extensible</strong> : Centaines de plugins disponibles</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Gratuit et open source</strong> : Aucun coût de licence</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Multiplateforme</strong> : Fonctionne sur Windows, Mac et Linux</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Communauté active</strong> : Documentation riche et forums d'entraide</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Puissant</strong> : Rivalise avec les solutions commerciales</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Extensible</strong> : Centaines de plugins disponibles</li>
                 </ul>
 
                 <h3>Installation de QGIS</h3>
@@ -274,6 +285,12 @@
                     <li><strong>Exporter en PDF</strong> ou image haute résolution</li>
                 </ol>
 
+                <figure>
+                    <img src="img/carte-topo-tai.jpg" alt="Carte topographique de la zone de Taï réalisée avec QGIS" width="1600" height="1600" loading="lazy">
+                    <figcaption><i class="fas fa-map"></i>Exemple de carte réalisée avec QGIS : topographie de la zone de Taï, avec les principales localités. Carte : A.C. KAMBOU.</figcaption>
+                </figure>
+
+
                 <h2>Ressources pour aller plus loin</h2>
 
                 <ul>
@@ -294,11 +311,11 @@
                 </p>
 
                 <div class="highlight-box mt-8">
-                    <p class="mb-2"><strong>💡 Prochainement sur le blog :</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-book-open mr-2"></i>À lire aussi :</strong></p>
                     <ul class="mb-0">
-                        <li>Machine Learning pour l'Agriculture de Précision</li>
-                        <li>Créer des Tableaux de Bord KPI Efficaces</li>
-                        <li>Télédétection avec Google Earth Engine</li>
+                        <li><a href="ml-agriculture-precision.html" class="text-amber-400 hover:text-amber-300">Machine Learning pour l'Agriculture de Précision</a></li>
+                        <li><a href="tableaux-bord-kpi.html" class="text-amber-400 hover:text-amber-300">Créer des Tableaux de Bord KPI Efficaces</a></li>
+                        <li><a href="eudr-cacao-ivoirien.html" class="text-amber-400 hover:text-amber-300">EUDR et cacao ivoirien : cartographier contre la déforestation</a></li>
                     </ul>
                 </div>
             </article>
@@ -345,6 +362,11 @@
             </p>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 
 </html>

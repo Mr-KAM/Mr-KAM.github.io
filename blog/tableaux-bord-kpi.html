@@ -10,6 +10,14 @@
     <meta name="description" content="Méthodologie complète pour concevoir des dashboards de suivi-évaluation performants pour projets de développement. Guide pratique avec Power BI et Python.">
     <meta name="keywords" content="tableau de bord, KPI, dashboard, suivi-évaluation, Power BI, Python, data visualization, projets de développement">
     <meta name="author" content="Anicet Cyrille KAMBOU">
+
+    <!-- Open Graph (aperçu LinkedIn / Facebook / WhatsApp) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Créer des Tableaux de Bord KPI Efficaces">
+    <meta property="og:description" content="Méthodologie pour concevoir des dashboards de suivi-évaluation pour projets de développement.">
+    <meta property="og:url" content="https://mr-kam.github.io/blog/tableaux-bord-kpi.html">
+    <meta property="og:image" content="https://mr-kam.github.io/static/img%20profile/pp.png">
+    <meta name="twitter:card" content="summary_large_image">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../static/js/theme.js"></script>
@@ -129,9 +137,10 @@
         }
     </style>
     <link rel="stylesheet" href="../static/css/theme.css">
+    <link rel="stylesheet" href="../static/css/blog.css">
 </head>
 
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-900 text-white" data-prismjs-copy="Copier" data-prismjs-copy-success="Copié !" data-prismjs-copy-error="Échec">
     <!-- Navigation -->
     <header class="fixed w-full z-50 bg-gray-900/80 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto px-6 py-4">
@@ -196,11 +205,11 @@
                 </p>
 
                 <ul>
-                    <li>✅ <strong>Centraliser</strong> les données de terrain dispersées</li>
-                    <li>✅ <strong>Visualiser</strong> rapidement les tendances et écarts</li>
-                    <li>✅ <strong>Alerter</strong> sur les objectifs non atteints</li>
-                    <li>✅ <strong>Faciliter</strong> la prise de décision</li>
-                    <li>✅ <strong>Communiquer</strong> les résultats aux partenaires</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Centraliser</strong> les données de terrain dispersées</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Visualiser</strong> rapidement les tendances et écarts</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Alerter</strong> sur les objectifs non atteints</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Faciliter</strong> la prise de décision</li>
+                    <li class="ico"><i class="fas fa-check"></i><strong>Communiquer</strong> les résultats aux partenaires</li>
                 </ul>
 
                 <p>
@@ -215,12 +224,12 @@
                 </p>
 
                 <div class="kpi-card">
-                    <p class="mb-2"><strong>✅ Bon exemple :</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-check-circle text-green-400 mr-2"></i>Bon exemple :</strong></p>
                     <p class="mb-0 text-sm">Graphique en barres simples montrant le taux d'adoption d'une technologie par région</p>
                 </div>
 
                 <div class="kpi-card" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));">
-                    <p class="mb-2"><strong>❌ Mauvais exemple :</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-times-circle text-red-400 mr-2"></i>Mauvais exemple :</strong></p>
                     <p class="mb-0 text-sm">Graphique 3D animé avec dégradés arc-en-ciel et 12 catégories superposées</p>
                 </div>
 
@@ -261,7 +270,7 @@
                 </ul>
 
                 <div class="highlight-box">
-                    <p class="mb-2"><strong>💡 Exemple :</strong> Projet d'appui aux coopératives de cacao</p>
+                    <p class="mb-2"><strong><i class="fas fa-lightbulb mr-2"></i>Exemple :</strong> Projet d'appui aux coopératives de cacao</p>
                     <p class="mb-0"><strong>Public :</strong> Chef de projet + Coordinateurs régionaux<br>
                     <strong>Objectif :</strong> Suivre l'adoption des bonnes pratiques agricoles<br>
                     <strong>Décisions :</strong> Identifier les zones nécessitant un renforcement de formation</p>
@@ -353,19 +362,53 @@
                 <p>Dessinez sur papier ou avec un outil simple (PowerPoint, Figma) la structure de votre dashboard avant de commencer le développement.</p>
 
                 <p><strong>Structure type :</strong></p>
-                <pre><code>┌─────────────────────────────────────────────┐
-│  TITRE DU DASHBOARD         Filtres: 🗓️ 📍   │
-├─────────────────────────────────────────────┤
-│  [KPI 1]    [KPI 2]    [KPI 3]    [KPI 4]   │
-│   1,245      87%      +12%      2.3M FCFA   │
-├─────────────────────────────────────────────┤
-│  Évolution mensuelle        │  Répartition  │
-│  [Graphique courbe]         │  par région   │
-│                             │  [Carte]      │
-├─────────────────────────────┴───────────────┤
-│  Tableau détaillé des activités             │
-│  [Table avec pagination]                    │
-└─────────────────────────────────────────────┘</code></pre>
+                <figure>
+                    <div class="diagram">
+                        <svg viewBox="0 0 800 470" role="img" aria-labelledby="kpi-wf">
+                        <title id="kpi-wf">Maquette type d'un tableau de bord : titre et filtres, quatre indicateurs clés, courbe d'évolution, carte par région et tableau détaillé</title>
+                        <g font-family="Archivo, sans-serif">
+                        <rect x="0" y="0" width="800" height="52" rx="8" fill="#161616" stroke="#333"/>
+                        <text x="20" y="32" fill="#f2f2f2" font-size="16" font-weight="700">TITRE DU DASHBOARD</text>
+                        <rect x="560" y="13" width="104" height="26" rx="13" fill="none" stroke="#d4ff3f"/>
+                        <text x="612" y="31" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">Période ▾</text>
+                        <rect x="676" y="13" width="104" height="26" rx="13" fill="none" stroke="#d4ff3f"/>
+                        <text x="728" y="31" text-anchor="middle" fill="#d4ff3f" font-size="12" font-family="JetBrains Mono, monospace">Région ▾</text>
+                        <rect x="0" y="68" width="188" height="92" rx="8" fill="#161616" stroke="#333"/><rect x="0" y="80" width="3" height="68" fill="#d4ff3f"/><text x="20" y="112" fill="#f2f2f2" font-size="28" font-weight="800">1 245</text><text x="20" y="140" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">Bénéficiaires</text>
+                        <rect x="204" y="68" width="188" height="92" rx="8" fill="#161616" stroke="#333"/><rect x="204" y="80" width="3" height="68" fill="#d4ff3f"/><text x="224" y="112" fill="#f2f2f2" font-size="28" font-weight="800">87 %</text><text x="224" y="140" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">Taux de présence</text>
+                        <rect x="408" y="68" width="188" height="92" rx="8" fill="#161616" stroke="#333"/><rect x="408" y="80" width="3" height="68" fill="#d4ff3f"/><text x="428" y="112" fill="#f2f2f2" font-size="28" font-weight="800">+12 %</text><text x="428" y="140" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">vs trimestre préc.</text>
+                        <rect x="612" y="68" width="188" height="92" rx="8" fill="#161616" stroke="#333"/><rect x="612" y="80" width="3" height="68" fill="#d4ff3f"/><text x="632" y="112" fill="#f2f2f2" font-size="28" font-weight="800">2,3 M</text><text x="632" y="140" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">FCFA engagés</text>
+                        <rect x="0" y="176" width="520" height="180" rx="8" fill="#161616" stroke="#333"/>
+                        <text x="20" y="202" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">Évolution mensuelle</text>
+                        <line x1="30" y1="240" x2="500" y2="240" stroke="#262626"/>
+                        <line x1="30" y1="290" x2="500" y2="290" stroke="#262626"/>
+                        <line x1="30" y1="340" x2="500" y2="340" stroke="#333"/>
+                        <polygon points="30,330 95,318 160,322 225,296 290,300 355,272 420,262 490,236 490,340 30,340" fill="#d4ff3f" fill-opacity="0.08"/>
+                        <polyline points="30,330 95,318 160,322 225,296 290,300 355,272 420,262 490,236" fill="none" stroke="#d4ff3f" stroke-width="2.5" stroke-linejoin="round"/>
+                        <circle cx="490" cy="236" r="5" fill="#d4ff3f"/>
+                        <rect x="536" y="176" width="264" height="180" rx="8" fill="#161616" stroke="#333"/>
+                        <text x="552" y="202" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">Répartition par région</text>
+                        <g fill="#d4ff3f" fill-opacity="0.25" stroke="#d4ff3f">
+                            <circle cx="600" cy="262" r="18"/><circle cx="668" cy="304" r="10"/><circle cx="726" cy="252" r="24"/><circle cx="716" cy="326" r="8"/><circle cx="624" cy="322" r="13"/>
+                        </g>
+                        <rect x="0" y="372" width="800" height="92" rx="8" fill="#161616" stroke="#333"/>
+                        <text x="20" y="396" fill="#9a9a9a" font-size="12" font-family="JetBrains Mono, monospace">Tableau détaillé des activités</text>
+                        <rect x="20" y="412" width="170" height="8" rx="4" fill="#333"/>
+                        <rect x="230" y="412" width="120" height="8" rx="4" fill="#333"/>
+                        <rect x="430" y="412" width="100" height="8" rx="4" fill="#333"/>
+                        <rect x="620" y="412" width="80" height="8" rx="4" fill="#333"/>
+                        <rect x="20" y="430" width="170" height="8" rx="4" fill="#262626"/>
+                        <rect x="230" y="430" width="120" height="8" rx="4" fill="#262626"/>
+                        <rect x="430" y="430" width="100" height="8" rx="4" fill="#262626"/>
+                        <rect x="620" y="430" width="80" height="8" rx="4" fill="#262626"/>
+                        <rect x="20" y="448" width="170" height="8" rx="4" fill="#262626"/>
+                        <rect x="230" y="448" width="120" height="8" rx="4" fill="#262626"/>
+                        <rect x="430" y="448" width="100" height="8" rx="4" fill="#262626"/>
+                        <rect x="620" y="448" width="80" height="8" rx="4" fill="#262626"/>
+                        </g>
+                    </svg>
+                    </div>
+                    <figcaption><i class="fas fa-th-large"></i>Maquette type : filtres en haut, indicateurs clés, puis tendance, répartition géographique et détail.</figcaption>
+                </figure>
 
                 <h3>Étape 6 : Développer le dashboard</h3>
 
@@ -394,20 +437,23 @@
                 <p>Créons un dashboard simple pour suivre les formations agricoles. Nous utilisons Power BI Desktop (gratuit).</p>
 
                 <h3>Étape 1 : Importer les données</h3>
-                <pre><code>Accueil → Obtenir les données → Excel
+                <pre data-language="Power BI Desktop"><code class="language-none">Accueil → Obtenir les données → Excel
 → Sélectionner votre fichier formations.xlsx
 → Sélectionner les feuilles à importer
 → Transformer les données (Power Query)</code></pre>
 
                 <h3>Étape 2 : Nettoyer dans Power Query</h3>
-                <pre><code>- Supprimer les colonnes inutiles
-- Remplacer les valeurs (ex : "M" → "Masculin")
-- Changer le type de colonne (Texte, Date, Nombre)
-- Créer colonne personnalisée : Âge = DATEDIFF([Date_naissance], TODAY(), YEAR)
-- Fermer et appliquer</code></pre>
+                <ol>
+                    <li>Supprimer les colonnes inutiles</li>
+                    <li>Remplacer les valeurs (ex : « M » devient « Masculin »)</li>
+                    <li>Vérifier le type de chaque colonne (Texte, Date, Nombre)</li>
+                    <li>Ajouter une colonne personnalisée pour l'âge (Ajouter une colonne → Colonne personnalisée) :</li>
+                </ol>
+                <pre data-language="Power Query (M)"><code class="language-powerquery">Number.RoundDown(Duration.Days(Date.From(DateTime.LocalNow()) - [Date_naissance]) / 365.25)</code></pre>
+                <p>Cliquez enfin sur <strong>Fermer et appliquer</strong>.</p>
 
                 <h3>Étape 3 : Créer des mesures DAX</h3>
-                <pre><code>Nombre total de bénéficiaires = COUNTROWS(Formations)
+                <pre data-language="DAX"><code class="language-dax">Nombre total de bénéficiaires = COUNTROWS(Formations)
 
 Taux de présence = 
 DIVIDE(
@@ -417,7 +463,7 @@ DIVIDE(
 )
 
 Objectif atteint = 
-IF([Nombre total de bénéficiaires] >= 500, "✅ Oui", "❌ Non")</code></pre>
+IF([Nombre total de bénéficiaires] >= 500, "Oui", "Non")</code></pre>
 
                 <h3>Étape 4 : Construire les visuels</h3>
                 <ol>
@@ -428,12 +474,12 @@ IF([Nombre total de bénéficiaires] >= 500, "✅ Oui", "❌ Non")</code></pre>
                 </ol>
 
                 <h3>Étape 5 : Ajouter des filtres</h3>
-                <pre><code>Insérer → Segment
+                <pre data-language="Power BI Desktop"><code class="language-none">Insérer → Segment
 → Glisser le champ "Région"
 → Appliquer à toutes les pages</code></pre>
 
                 <h3>Étape 6 : Publier</h3>
-                <pre><code>Fichier → Publier → Publier sur Power BI Service
+                <pre data-language="Power BI Desktop"><code class="language-none">Fichier → Publier → Publier sur Power BI Service
 → Se connecter avec compte Microsoft 365
 → Partager avec l'équipe (permissions en lecture)</code></pre>
 
@@ -441,7 +487,7 @@ IF([Nombre total de bénéficiaires] >= 500, "✅ Oui", "❌ Non")</code></pre>
 
                 <p>Pour plus de flexibilité, vous pouvez créer un dashboard avec Python :</p>
 
-                <pre><code>import streamlit as st
+                <pre data-language="Python"><code class="language-python">import streamlit as st
 import pandas as pd
 import plotly.express as px
 
@@ -456,7 +502,7 @@ def load_data():
 df = load_data()
 
 # Titre
-st.title("📊 Dashboard Suivi des Formations Agricoles")
+st.title("Dashboard Suivi des Formations Agricoles")
 
 # Filtres dans la sidebar
 region = st.sidebar.multiselect("Région", df['Region'].unique())
@@ -507,7 +553,7 @@ st.dataframe(df, use_container_width=True)</code></pre>
                 <h3>2. Interface multilingue</h3>
                 <ul>
                     <li>Français + langues locales si nécessaire</li>
-                    <li>Utiliser des icônes universelles 🚜 👨‍🌾 📈</li>
+                    <li>Utiliser des icônes universelles (<i class="fas fa-tractor"></i> <i class="fas fa-user"></i> <i class="fas fa-chart-line"></i>)</li>
                 </ul>
 
                 <h3>3. Version mobile-first</h3>
@@ -519,27 +565,27 @@ st.dataframe(df, use_container_width=True)</code></pre>
                 <h2>Erreurs fréquentes à éviter</h2>
 
                 <div class="kpi-card" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));">
-                    <p class="mb-2"><strong>❌ Trop d'indicateurs</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-times-circle text-red-400 mr-2"></i>Trop d'indicateurs</strong></p>
                     <p class="mb-0 text-sm">Plus de 10 KPIs = surcharge cognitive. Priorisez !</p>
                 </div>
 
                 <div class="kpi-card" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));">
-                    <p class="mb-2"><strong>❌ Graphiques inadaptés</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-times-circle text-red-400 mr-2"></i>Graphiques inadaptés</strong></p>
                     <p class="mb-0 text-sm">Camembert 3D pour 12 catégories = illisible</p>
                 </div>
 
                 <div class="kpi-card" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));">
-                    <p class="mb-2"><strong>❌ Pas de contexte</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-times-circle text-red-400 mr-2"></i>Pas de contexte</strong></p>
                     <p class="mb-0 text-sm">Afficher "1,245" sans préciser si c'est bon ou mauvais (objectif ?)</p>
                 </div>
 
                 <div class="kpi-card" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));">
-                    <p class="mb-2"><strong>❌ Données obsolètes</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-times-circle text-red-400 mr-2"></i>Données obsolètes</strong></p>
                     <p class="mb-0 text-sm">Dashboard non mis à jour = perte de confiance</p>
                 </div>
 
                 <div class="kpi-card" style="border-color: rgba(239, 68, 68, 0.3); background: linear-gradient(145deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));">
-                    <p class="mb-2"><strong>❌ Ignorer l'utilisateur final</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-times-circle text-red-400 mr-2"></i>Ignorer l'utilisateur final</strong></p>
                     <p class="mb-0 text-sm">Dashboard technique pour des non-techniciens = échec</p>
                 </div>
 
@@ -575,11 +621,11 @@ st.dataframe(df, use_container_width=True)</code></pre>
 
                 <p><strong>Les clés du succès :</strong></p>
                 <ul>
-                    <li>✅ Commencer simple et itérer</li>
-                    <li>✅ Écouter les utilisateurs finaux</li>
-                    <li>✅ Automatiser la mise à jour des données</li>
-                    <li>✅ Former les utilisateurs</li>
-                    <li>✅ Maintenir et améliorer continuellement</li>
+                    <li class="ico"><i class="fas fa-check"></i>Commencer simple et itérer</li>
+                    <li class="ico"><i class="fas fa-check"></i>Écouter les utilisateurs finaux</li>
+                    <li class="ico"><i class="fas fa-check"></i>Automatiser la mise à jour des données</li>
+                    <li class="ico"><i class="fas fa-check"></i>Former les utilisateurs</li>
+                    <li class="ico"><i class="fas fa-check"></i>Maintenir et améliorer continuellement</li>
                 </ul>
 
                 <p>
@@ -587,12 +633,12 @@ st.dataframe(df, use_container_width=True)</code></pre>
                 </p>
 
                 <div class="highlight-box mt-8">
-                    <p class="mb-2"><strong>💼 Besoin d'accompagnement ?</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-briefcase mr-2"></i>Besoin d'accompagnement ?</strong></p>
                     <p class="mb-0">Je propose des formations sur mesure en création de tableaux de bord pour organisations et projets de développement. Contactez-moi pour discuter de vos besoins !</p>
                 </div>
 
                 <div class="highlight-box mt-4" style="border-left-color: #d4ff3f; background: linear-gradient(145deg, rgba(212, 255, 63, 0.1), rgba(212, 255, 63, 0.1));">
-                    <p class="mb-2"><strong>📚 Articles liés :</strong></p>
+                    <p class="mb-2"><strong><i class="fas fa-book-open mr-2"></i>Articles liés :</strong></p>
                     <ul class="mb-0">
                         <li><a href="introduction-sig.html" class="text-amber-400 hover:text-amber-300">Introduction aux Systèmes d'Information Géographique</a></li>
                         <li><a href="ml-agriculture-precision.html" class="text-amber-400 hover:text-amber-300">Machine Learning pour l'Agriculture de Précision</a></li>
@@ -642,6 +688,23 @@ st.dataframe(df, use_container_width=True)</code></pre>
             </p>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script>
+        // Prism n'a pas de grammaire DAX : définition minimale
+        Prism.languages.dax = {
+            comment: /\/\/.*|--.*/,
+            string: /"(?:[^"]|"")*"/,
+            variable: /\b\w+\[[^\]]+\]|\[[^\]]+\]/,
+            function: /\b[A-Z][A-Z0-9.]*(?=\s*\()/,
+            number: /\b\d+(?:\.\d+)?\b/,
+            operator: /[=<>+\-*\/&]+/,
+            punctuation: /[(),]/
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 
 </html>
